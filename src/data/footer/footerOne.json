@@ -1,0 +1,58 @@
+[
+    {
+        "id": 1,
+        "title": "Create Website By CARS RENTAL PARIS So Quick Download And Make Your Site."
+    },
+
+    {
+        "id": 2,
+        "title": "Services",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "About",
+                "url": "/about"
+            },
+            {
+                "id": 3,
+                "text": "Contact",
+                "url": "/contact"
+            },
+            {
+                "id": 4,
+                "text": "Service",
+                "url": "/service"
+            }
+        ]
+    },
+
+
+
+    {
+        "id": 5,
+        "title": "Resources",
+        "quicklink": [
+            {
+                "id": 1,
+                "text": "About",
+                "url": "/about"
+            },
+            {
+                "id": 3,
+                "text": "Contact",
+                "url": "/contact"
+            },
+            {
+                "id": 4,
+                "text": "Service",
+                "url": "/service"
+            }
+        ]
+    },
+
+    {
+        "id": 6,
+        "title": "Stay With Us.",
+        "subtitle": "2000+ Our clients are subscribe Around the World"
+    }
+]
