@@ -5,7 +5,8 @@
   "homepage": "https://cars_rental_paris.rainbowit.net/",
   "engines": {
     "node": "16.18.1",
-    "yarn":"1.22.19"
+    "yarn":"1.22.19",
+    "npm":"8.19.2"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
