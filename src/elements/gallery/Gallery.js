@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import SEO from "../../common/SEO";
-import Layout from "../../common/Layout";
 import ImageGallery from "react-image-gallery";
 import styles from "./Gallery.module.scss";
 import "./Gallery.module.scss";
@@ -60,15 +59,11 @@ import {
 } from "react-router-dom";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import CarsSlider from "../service/carsSlider";
+import FooterFour from "../../common/footer/FooterFour";
+import HeaderMain from "../../common/header/HeaderMain";
 
 const Elements = ({ props }) => {
   const location = useLocation();
-  const ServiceList = [
-    "location de voiture",
-    "location avec chauffeur",
-    "transfert avec chauffeur",
-  ];
-
   const [selected, setSelected] = useState(false);
   const onChange = (time) => {
     setValue(time);
@@ -378,7 +373,8 @@ const Elements = ({ props }) => {
   return (
     <>
       <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
-      <Layout>
+      <main>
+     <HeaderMain/>
         <section className={styles.car_section}>
           <div className={styles.Details_container}>
             <div className="r-sec-head r-sec-left-head">
@@ -891,7 +887,8 @@ const Elements = ({ props }) => {
               </div>
           </div>
         </section>
-      </Layout>
+<FooterFour/>
+      </main>
     </>
   );
 };

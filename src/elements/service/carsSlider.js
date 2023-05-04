@@ -1,9 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import TR from "./TR.png";
-import { faCogs } from "@fortawesome/free-solid-svg-icons";
 import car from "./car.png";
 import speed from "./speed.svg";
 import fuel from "./fuel.svg";
@@ -39,10 +37,6 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
                     <span style={{ color: "orange" }}>{val.price}€</span> par
                     jour
                   </h6>
-                  {/* <p
-                    className="description"
-                    dangerouslySetInnerHTML={{ __html: val.description }}
-                  ></p> */}
                 </div>
                 <div className="image">
                   <img

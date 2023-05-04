@@ -29,6 +29,8 @@ import Nissan from "./Logos/Nissan.jpeg";
 import Porsche from "./Logos/Porsche.jpeg";
 import Range from "./Logos/Range.jpeg";
 import RR from "./Logos/RR.jpeg";
+import HeaderMain from "../common/header/HeaderMain";
+import FooterFour from "../common/footer/FooterFour";
 const Reservation = ({ props }) => {
   const location = useLocation();
   const CarData = location.state.data;
@@ -116,8 +118,6 @@ const Reservation = ({ props }) => {
   const [departureMinute, setDepartureMinute] = useState("00");
   const [arrivalHour, setArrivalHour] = useState(14);
   const [arrivalMinute, setArrivalMinute] = useState("00");
-  const [fullPrice, setFullPrice] = useState(0);
-  const [endDateToSend, setEndDateToSend] = useState(null);
   const Price = checked3
     ? CarData.price * NumberOfDays + CarData.AssReduc * NumberOfDays
     : CarData.price * NumberOfDays;
@@ -173,12 +173,11 @@ const Reservation = ({ props }) => {
     if (TimeValue2?.$d) {
       setArrivalHour(new Date(TimeValue2.$d).getHours());
     }
-    setFullPrice(HourlyRate * TimeSpent);
   }, [TimeValue, TimeValue2, HourlyRate, TimeSpent]);
   return (
     <>
       <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
-      <Layout>
+      <HeaderMain/>
         <div style={{ background: "#ececec" }}>
           <section
             style={{ background: "#ececec", marginRight: 15, marginBottom: -50 }}
@@ -354,7 +353,6 @@ const Reservation = ({ props }) => {
                             value={startDate}
                             onChange={(value) => {
                               setStarteDate(value);
-                              setEndDateToSend(value);
                             }}
                             id="fromDate"
                             selected={null}
@@ -741,7 +739,7 @@ const Reservation = ({ props }) => {
             </div>
           </section>
         </div>
-      </Layout>
+      <FooterFour/>
     </>
   );
 };

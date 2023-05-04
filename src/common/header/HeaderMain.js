@@ -15,7 +15,6 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
   let [check, setCheck] = useState(true);
   const sticky = useStickyHeader(50);
   const headerClasses = `header-default ${sticky && check ? "sticky" : ""}`;
-  const { clientHeight } = ref;
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -25,14 +24,10 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
   useEffect(() => {
     handleScroll()
     window.addEventListener("scroll", handleScroll, { passive: true });
-    console.log("POISITION",scrollPosition)
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollPosition]);
-  const checkChange = (value) => {
-    setCheck(value);
-  };
   return (
     <>
       <header
@@ -43,8 +38,6 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
           <div className="row align-items-center row--0">
             <div className="col-lg-3 col-md-6 col-4">
               <Logo
-              
-                // image={`${process.env.PUBLIC_URL}/images/logo/logo_Car_Dark.png`}
                 image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
               />
             </div>

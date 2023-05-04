@@ -30,7 +30,7 @@ const HeaderOne = ({ btnStyle, HeaderSTyle }) => {
             <div className="col-lg-3 col-md-6 col-4">
               <Logo
                 // image={`${process.env.PUBLIC_URL}/images/logo/logo_Car_Dark.png`}
-                image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
+                image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.svg`}
               />
             </div>
             <div className="col-lg-9 col-md-6 col-8 position-static">

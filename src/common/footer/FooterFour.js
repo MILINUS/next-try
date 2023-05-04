@@ -1,10 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom";
-// import CalltoActionSeven from "../../elements/calltoaction/CalltoActionSeven";
-import footerOne from "../../data/footer/footerOne.json";
 import ScrollTop from "./ScrollTop";
-import NewsletterOne from "./NewsletterOne";
-// import { FiFacebook, FiTwitter, FiInstagram, FiLinkedin } from "react-icons/fi";
 import RR1 from "../../pages/Cars/RRCULINAN/1.jpg";
 import RR2 from "../../pages/Cars/RRCULINAN/2.jpg";
 import RR3 from "../../pages/Cars/RRCULINAN/3.jpg";
@@ -26,10 +22,6 @@ import MAZ2 from "../../pages/Cars/MAZERATI/2.jpg";
 import MAZ3 from "../../pages/Cars/MAZERATI/3.jpg";
 import MAZ4 from "../../pages/Cars/MAZERATI/4.jpg";
 import URUS1 from "../../pages/Cars/URUS/1.jpg";
-// const footerIntem =  footerOne[0];
-const footerIntemOne =  footerOne[1];
-// const footerIntemThree =  footerOne[3];
-// const footerIntemFour =  footerOne[4];
 
 
 const CarsInfo = [
@@ -295,7 +287,6 @@ const CarsInfo = [
       brand: "MASERATI",
     },
   ];
-const indexOneLink = (footerIntemOne.quicklink);
 // const indexThreeLink = (footerIntemThree.quicklink);
 
 const FooterFour = () => {
@@ -321,44 +312,19 @@ const FooterFour = () => {
                                     </div>
                                 </div>
                             </div>
-                            {/* End Single Widget  */}
-
-                            {/* Start Single Widget  */}
-                           
-                            {/* End Single Widget  */}
-
-                            {/* Start Single Widget  */}
-                         
-                            {/* End Single Widget  */}
-
-                            {/* Start Single Widget  */}
-                           
-                            {/* End Single Widget  */}
-
-                            {/* Start Single Widget  */}
-                            
-                            {/* End Single Widget  */}
                         </div>
                     </div>
                 </div>
-                {/* <NewsletterOne newsletetrStyle="rn-newsletter-default" extraClass="border-top-bottom" /> */}
                 <div className="copyright-area copyright-style-one no-border">
                     <div className="container">
                         <div className="row align-items-center">
                             <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                                 <div className="copyright-left">
                                     <ul className="ft-menu link-hover">
-                                        {/* <li><a href="#">Privacy Policy</a></li>
-                                        <li><a href="#">Terms And Condition</a></li> */}
                                         <p className="copyright-text">© CARS RENTAL PARIS {new Date().getFullYear()}</p>
                                     </ul>
                                 </div>
                             </div>
-                            {/* <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                                <div className="copyright-right text-center text-md-end">
-                                    <p className="copyright-text">© CARS RENTAL PARIS {new Date().getFullYear()}</p>
-                                </div>
-                            </div> */}
                         </div>
                     </div>
                 </div>

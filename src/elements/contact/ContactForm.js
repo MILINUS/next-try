@@ -36,8 +36,6 @@ function ContactForm({
   useEffect(()=>{
     setYesNotoOuiNon()
 })
-const [realEndDate,setRealEndDate]=useState(endDate)
-console.log("The End Man",realEndDate)
   const checkifError = () => {
     if (arrivalLocation === "" || departureLocation === "") {
       setError(true);

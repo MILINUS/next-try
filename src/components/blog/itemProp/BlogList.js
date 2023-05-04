@@ -12,7 +12,6 @@ import speed from "./images/speed.svg";
 import fuel from "./images/fuel.svg";
 import "../../../elements/gallery/Gallery.module.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { validateDate } from "@mui/x-date-pickers/internals";
 
 const BlogList = ({ item, StyleVar,index,service }) => {
   console.log("This is the Service",service)
@@ -46,11 +45,6 @@ const BlogList = ({ item, StyleVar,index,service }) => {
           >{item.categorie_location.map((e)=>(
             <li style={{marginBottom:-10}}>-{e}</li>
           ))}
-            {/* <li>location de voiture</li>
-            <li className="separator">|</li>
-            <li>location de voiture</li>
-           
-            <li className="last_li">location de voiture</li> */}
           </ul>
           <ul className="rn-meta-list" style={{
                     display: "flex",
