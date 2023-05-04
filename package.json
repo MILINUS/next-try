@@ -5,8 +5,8 @@
   "homepage": "https://cars_rental_paris.rainbowit.net/",
   "engines": {
     "node": "16.18.1",
-    "yarn":"1.22.19",
-    "npm":"8.19.2"
+    "yarn": "1.22.19",
+    "npm": "8.19.2"
   },
   "dependencies": {
     "@date-io/date-fns": "^2.16.0",
@@ -16,9 +16,11 @@
     "@fortawesome/fontawesome-svg-core": "^6.3.0",
     "@fortawesome/free-solid-svg-icons": "^6.3.0",
     "@fortawesome/react-fontawesome": "^0.2.0",
+    "@material-ui/core": "^4.12.4",
     "@mui/lab": "^5.0.0-alpha.120",
     "@mui/material": "^5.11.10",
     "@mui/x-date-pickers": "^5.0.19",
+    "@mui/system": "^5.8.0",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -33,7 +35,6 @@
     "formik": "^2.2.9",
     "google-map-react": "^2.1.10",
     "install": "^0.13.0",
-    "material-ui": "^0.20.2",
     "moment": "^2.29.4",
     "moment-jalaali": "^0.9.6",
     "react": "^17.0.2",
