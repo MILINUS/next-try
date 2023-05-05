@@ -1,12 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { AnimationOnScroll } from "react-animation-on-scroll";
-import GTC2 from "../../pages/Cars/BENTLEY_GTC/2.jpg";
-import RRV1 from "../../pages/Cars/RANGE_ROVER_VOGUE/1.jpg";
-import V1 from "../../pages/Cars/MERCEDES_V/1.jpeg";
+const FirebaseStorage1 = `https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/`;
+const FirebaseStorage2 =
+  "?alt=media&token=73f41327-4bc0-4da9-a2ea-7e452085d11b";
 const ServiceList = [
   {
-    image: GTC2,
+    image: `${FirebaseStorage1}BENTLEY_GTC%2F2.jpg${FirebaseStorage2}`,
     title: "LOCATION DE VOITURES LUXUEUSES",
     description:
       "Cars Rental Paris vous propose une gamme très large de supercars, cabriolets et SUV de prestige à louer.",
@@ -14,7 +14,7 @@ const ServiceList = [
     Link: "/Location-Voiture",
   },
   {
-    image: RRV1,
+    image: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
     title: "LOCATION AVEC CHAUFFEUR",
     service: "location avec chauffeur",
     description:
@@ -22,7 +22,7 @@ const ServiceList = [
     Link: "/Location-Voiture",
   },
   {
-    image: V1,
+    image: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
     title: "TRANSFERT AVEC CHAUFFEUR",
     service: "transfert avec chauffeur",
     description:

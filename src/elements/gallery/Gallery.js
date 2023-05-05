@@ -9,48 +9,27 @@ import { useLocation } from "react-router-dom";
 import { TimePicker } from "antd";
 import dayjs from "dayjs";
 import speed from "./images/speed.svg";
-import seat from "./images/Seat.png"
-import Engine from "./images/Engine.png"
+import seat from "./images/Seat.png";
+import Engine from "./images/Engine.png";
 import fuel from "./images/fuel.svg";
-import TR from "../service/TR.png"
-import AM from '../../pages/Logos/AsMa.jpeg'
-import AU from '../../pages/Logos/audi.jpeg'
-import BT from '../../pages/Logos/BENTLEY.jpeg'
-import BM from '../../pages/Logos/BMW.jpeg'
-import FR from "../../pages/Logos/FERR.jpeg"
-import GO from "../../pages/Logos/Golf.jpeg"
-import Jag from "../../pages/Logos/Jag.jpeg"
-import LB from "../../pages/Logos/LAMB.jpeg"
-import MS from "../../pages/Logos/Manso.jpeg"
-import Mas from "../../pages/Logos/MASER.jpeg"
-import MC from "../../pages/Logos/McLa.jpeg"
-import Merco from "../../pages/Logos/Merci.jpeg"
-import Mini from "../../pages/Logos/MINI.jpeg"
-import Nissan from "../../pages/Logos/Nissan.jpeg"
-import Porsche from "../../pages/Logos/Porsche.jpeg"
-import Range from "../../pages/Logos/Range.jpeg"
-import RR from "../../pages/Logos/RR.jpeg"
-import RR1 from "../../pages/Cars/RRCULINAN/1.jpg";
-import RR2 from "../../pages/Cars/RRCULINAN/2.jpg";
-import RR3 from "../../pages/Cars/RRCULINAN/3.jpg";
-import BB1 from "../../pages/Cars/BENTLEY_BENTAYGA/1.jpg";
-import BB2 from "../../pages/Cars/BENTLEY_BENTAYGA/2.jpg";
-import BB3 from "../../pages/Cars/BENTLEY_BENTAYGA/3.jpg";
-import BB4 from "../../pages/Cars/BENTLEY_BENTAYGA/4.jpg";
-import BB5 from "../../pages/Cars/BENTLEY_BENTAYGA/5.jpg";
-import RRV1 from "../../pages/Cars/RANGE_ROVER_VOGUE/1.jpg";
-import RRV2 from "../../pages/Cars/RANGE_ROVER_VOGUE/2.jpg";
-import RRV3 from "../../pages/Cars/RANGE_ROVER_VOGUE/3.jpg";
-import RRV4 from "../../pages/Cars/RANGE_ROVER_VOGUE/4.jpg";
-import MACAN1 from "../../pages/Cars/Porshe_MACAN/1.jpg";
-import MACAN2 from "../../pages/Cars/Porshe_MACAN/2.jpg";
-import MACAN3 from "../../pages/Cars/Porshe_MACAN/3.jpg";
-import MACAN4 from "../../pages/Cars/Porshe_MACAN/4.jpg";
-import MAZ1 from "../../pages/Cars/MAZERATI/1.jpg";
-import MAZ2 from "../../pages/Cars/MAZERATI/2.jpg";
-import MAZ3 from "../../pages/Cars/MAZERATI/3.jpg";
-import MAZ4 from "../../pages/Cars/MAZERATI/4.jpg";
-import URUS1 from "../../pages/Cars/URUS/1.jpg";
+import TR from "../service/TR.png";
+import AM from "../../pages/Logos/AsMa.jpeg";
+import AU from "../../pages/Logos/audi.jpeg";
+import BT from "../../pages/Logos/BENTLEY.jpeg";
+import BM from "../../pages/Logos/BMW.jpeg";
+import FR from "../../pages/Logos/FERR.jpeg";
+import GO from "../../pages/Logos/Golf.jpeg";
+import Jag from "../../pages/Logos/Jag.jpeg";
+import LB from "../../pages/Logos/LAMB.jpeg";
+import MS from "../../pages/Logos/Manso.jpeg";
+import Mas from "../../pages/Logos/MASER.jpeg";
+import MC from "../../pages/Logos/McLa.jpeg";
+import Merco from "../../pages/Logos/Merci.jpeg";
+import Mini from "../../pages/Logos/MINI.jpeg";
+import Nissan from "../../pages/Logos/Nissan.jpeg";
+import Porsche from "../../pages/Logos/Porsche.jpeg";
+import Range from "../../pages/Logos/Range.jpeg";
+import RR from "../../pages/Logos/RR.jpeg";
 import {
   BrowserRouter as Router,
   Route,
@@ -89,6 +68,10 @@ const Elements = ({ props }) => {
     "Paris Orly",
     "St Tropez",
   ];
+  const FirebaseStorage1 = `https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/`;
+  const FirebaseStorage2 =
+    "?alt=media&token=73f41327-4bc0-4da9-a2ea-7e452085d11b";
+  const Fire2ForUrus = "?alt=media&token=0c588385-12e3-4850-9b6d-de93a74fe7e8";
   const CarsInfo = [
     {
       id: 0,
@@ -113,20 +96,20 @@ const Elements = ({ props }) => {
       speed: "248km/h",
       image: [
         {
-          original: MACAN1,
-          thumbnail: MACAN1,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN2,
-          thumbnail: MACAN2,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN3,
-          thumbnail: MACAN3,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN4,
-          thumbnail: MACAN4,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -162,20 +145,20 @@ const Elements = ({ props }) => {
       speed: "225km/h",
       image: [
         {
-          original: RRV1,
-          thumbnail: RRV1,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV2,
-          thumbnail: RRV2,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV3,
-          thumbnail: RRV3,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV4,
-          thumbnail: RRV4,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       type: "SUV",
@@ -205,24 +188,41 @@ const Elements = ({ props }) => {
       speed: "301km/h",
       image: [
         {
-          original: BB1,
-          thumbnail: BB1,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB2,
-          thumbnail: BB2,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB3,
-          thumbnail: BB3,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB4,
-          thumbnail: BB4,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB5,
-          thumbnail: BB5,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
+        },
+
+        {
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -257,16 +257,16 @@ const Elements = ({ props }) => {
       speed: "250km/h",
       image: [
         {
-          original: RR2,
-          thumbnail: RR2,
+          original: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: RR1,
-          thumbnail: RR1,
+          original: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: RR3,
-          thumbnail: RR3,
+          original: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -300,8 +300,29 @@ const Elements = ({ props }) => {
       speed: "305km/h",
       image: [
         {
-          original: URUS1,
-          thumbnail: URUS1,
+          original: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
+        },
+        {
+          original: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
+        },
+
+        {
+          original: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -331,20 +352,20 @@ const Elements = ({ props }) => {
       speed: "320km/h",
       image: [
         {
-          original: MAZ1,
-          thumbnail: MAZ1,
+          original: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ2,
-          thumbnail: MAZ2,
+          original: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ3,
-          thumbnail: MAZ3,
+          original: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ4,
-          thumbnail: MAZ4,
+          original: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -366,7 +387,11 @@ const Elements = ({ props }) => {
   const [value, setValue] = useState("10:00");
   const CarData = location.state.data;
   console.log("DATa", CarData);
-  const [service, setService] = useState(location.state.service!==""?location.state.service:"location de voiture");
+  const [service, setService] = useState(
+    location.state.service !== ""
+      ? location.state.service
+      : "location de voiture"
+  );
   const format = "HH:mm";
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -374,7 +399,7 @@ const Elements = ({ props }) => {
     <>
       <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
       <main>
-     <HeaderMain/>
+        <HeaderMain />
         <section className={styles.car_section}>
           <div className={styles.Details_container}>
             <div className="r-sec-head r-sec-left-head">
@@ -572,7 +597,10 @@ const Elements = ({ props }) => {
                 ) : service === "transfert avec chauffeur" ? (
                   <div className={styles.car_info_section}>
                     <h6 className="yellow-underline">Date & Heure</h6>
-                    <div style={{marginLeft:12}} className="Date_plus_time_container">
+                    <div
+                      style={{ marginLeft: 12 }}
+                      className="Date_plus_time_container"
+                    >
                       <div className="Date_container">
                         <DatePicker
                           style={{ margin: "0 0px", width: "100%" }}
@@ -657,8 +685,8 @@ const Elements = ({ props }) => {
                           flexDirection: "column",
                           // marginLeft: 20,
                           marginBottom: 20,
-                          alignItems:"center",
-                          justifyContent:"center"
+                          alignItems: "center",
+                          justifyContent: "center",
                         }}
                       >
                         <img
@@ -666,12 +694,25 @@ const Elements = ({ props }) => {
                           src={seat}
                           alt="speed"
                         />
-                        <span style={{ fontSize: 12, color: "black",marginLeft:8 }}>
+                        <span
+                          style={{
+                            fontSize: 12,
+                            color: "black",
+                            marginLeft: 8,
+                          }}
+                        >
                           {CarData.NbSg}
                         </span>
                       </div>
                     </div>
-                    <div style={{display:"flex",alignItems:"center",justifyContent:"center",marginLeft:"35px"}}>
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        marginLeft: "35px",
+                      }}
+                    >
                       <div className="col2 car-feature-size-mobile">
                         <div
                           style={{
@@ -686,12 +727,14 @@ const Elements = ({ props }) => {
                             src={Engine}
                             alt="speed"
                           />
-                          <span style={{ fontSize: 12, color: "black",width:100 }}>
+                          <span
+                            style={{ fontSize: 12, color: "black", width: 100 }}
+                          >
                             {CarData?.Power}
                           </span>
                         </div>
                       </div>
-                      <div style={{width:"30px"}}/>
+                      <div style={{ width: "30px" }} />
                       <div className="col2 car-feature-size-mobile">
                         <div
                           style={{
@@ -733,161 +776,93 @@ const Elements = ({ props }) => {
           </div>
         </section>
         <section className={styles.car_section}>
-        <div className="blog-area rn-section-gap">
-          <div className="container">
-            <div className="row">
-              <div className="col-lg-12">
-                <SectionTitle
-                  textAlign="text-center"
-                  radiusRounded=""
-                  subtitle="Pourrait vous plaire aussi"
-                  // title="Pourrait vous plair aussi"
-                  description="Une excellente expérience à la prise en charge et au retour du véhicule"
-                />
+          <div className="blog-area rn-section-gap">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-12">
+                  <SectionTitle
+                    textAlign="text-center"
+                    radiusRounded=""
+                    subtitle="Pourrait vous plaire aussi"
+                    // title="Pourrait vous plair aussi"
+                    description="Une excellente expérience à la prise en charge et au retour du véhicule"
+                  />
+                </div>
               </div>
-            </div>
-            {/* <div style={{ marginLeft: "70px" }} className="row row--15">
+              {/* <div style={{ marginLeft: "70px" }} className="row row--15">
               {CarsInfo.map((item, index) => (
                 <div key={index} className="col-lg-4 col-md-6 col-12 mt--30">
                   <BlogList StyleVar="box-card-style-default" item={item} />
                 </div>
               ))}
             </div> */}
-            <div>
-              <CarsSlider
-                serviceStyle="gallery-style"
-                textAlign="text-start"
-                carData={CarData}
-                CarsInfo={CarsInfo}
-              />
+              <div>
+                <CarsSlider
+                  serviceStyle="gallery-style"
+                  textAlign="text-start"
+                  carData={CarData}
+                  CarsInfo={CarsInfo}
+                />
+              </div>
             </div>
           </div>
-        </div>
         </section>
         <section id="r-car-brands">
           <div className="clearfix text-center r-brand-items">
-          <div className="brand-item">
-                <img
-                  src={AM}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={AU}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={BT}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={BM}
-                  id="location-louer-MANSORY"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={FR}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={GO}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Jag}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={LB}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={MS}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Mas}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Merco}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Mini}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Nissan}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Porsche}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={Range}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={RR}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
-              <div className="brand-item">
-                <img
-                  src={MC}
-                  id="location-louer-AUDI"
-                  alt=" car brand"
-                />
-              </div>
+            <div className="brand-item">
+              <img src={AM} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={AU} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={BT} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={BM} id="location-louer-MANSORY" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={FR} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={GO} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Jag} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={LB} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={MS} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Mas} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Merco} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Mini} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Nissan} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Porsche} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Range} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={RR} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={MC} id="location-louer-AUDI" alt=" car brand" />
+            </div>
           </div>
         </section>
-<FooterFour/>
+        <FooterFour />
       </main>
     </>
   );

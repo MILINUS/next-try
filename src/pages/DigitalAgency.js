@@ -12,27 +12,6 @@ import { DropdownList } from "react-widgets";
 import CarsSlider from "../elements/service/carsSlider";
 import HeaderMain from "../common/header/HeaderMain";
 import { Link } from "react-router-dom";
-import RR1 from "./Cars/RRCULINAN/1.jpg";
-import RR2 from "./Cars/RRCULINAN/2.jpg";
-import RR3 from "./Cars/RRCULINAN/3.jpg";
-import BB1 from "./Cars/BENTLEY_BENTAYGA/1.jpg";
-import BB2 from "./Cars/BENTLEY_BENTAYGA/2.jpg";
-import BB3 from "./Cars/BENTLEY_BENTAYGA/3.jpg";
-import BB4 from "./Cars/BENTLEY_BENTAYGA/4.jpg";
-import BB5 from "./Cars/BENTLEY_BENTAYGA/5.jpg";
-import RRV1 from "./Cars/RANGE_ROVER_VOGUE/1.jpg";
-import RRV2 from "./Cars/RANGE_ROVER_VOGUE/2.jpg";
-import RRV3 from "./Cars/RANGE_ROVER_VOGUE/3.jpg";
-import RRV4 from "./Cars/RANGE_ROVER_VOGUE/4.jpg";
-import MACAN1 from "./Cars/Porshe_MACAN/1.jpg";
-import MACAN2 from "./Cars/Porshe_MACAN/2.jpg";
-import MACAN3 from "./Cars/Porshe_MACAN/3.jpg";
-import MACAN4 from "./Cars/Porshe_MACAN/4.jpg";
-import MAZ1 from "./Cars/MAZERATI/1.jpg";
-import MAZ2 from "./Cars/MAZERATI/2.jpg";
-import MAZ3 from "./Cars/MAZERATI/3.jpg";
-import MAZ4 from "./Cars/MAZERATI/4.jpg";
-import URUS1 from "./Cars/URUS/1.jpg";
 import B from "./Mac/Berline.jpeg";
 import Limited from "./Mac/Limited.jpeg";
 import Limo from "./Mac/Limo.jpeg";
@@ -47,7 +26,10 @@ const BannerData = [
     description:
       "We help our clients succeed by creating brand identities, digital experiences, and print materials.",
   },
-];
+];  
+const FirebaseStorage1=`https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/`
+const FirebaseStorage2='?alt=media&token=73f41327-4bc0-4da9-a2ea-7e452085d11b'
+const Fire2ForUrus='?alt=media&token=0c588385-12e3-4850-9b6d-de93a74fe7e8'
 
 const CarsInfo = [
   {
@@ -73,20 +55,20 @@ const CarsInfo = [
     speed: "248km/h",
     image: [
       {
-        original: MACAN1,
-        thumbnail: MACAN1,
+        original: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
       },
       {
-        original: MACAN2,
-        thumbnail: MACAN2,
+        original: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
       },
       {
-        original: MACAN3,
-        thumbnail: MACAN3,
+        original: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
       },
       {
-        original: MACAN4,
-        thumbnail: MACAN4,
+        original:`${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
       },
     ],
     categorie_location: ["location de voiture"],
@@ -122,20 +104,20 @@ const CarsInfo = [
     speed: "225km/h",
     image: [
       {
-        original: RRV1,
-        thumbnail: RRV1,
+        original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
       },
       {
-        original: RRV2,
-        thumbnail: RRV2,
+        original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
       },
       {
-        original: RRV3,
-        thumbnail: RRV3,
+        original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
       },
       {
-        original: RRV4,
-        thumbnail: RRV4,
+        original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
       },
     ],
     type: "SUV",
@@ -165,24 +147,41 @@ const CarsInfo = [
     speed: "301km/h",
     image: [
       {
-        original: BB1,
-        thumbnail: BB1,
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
+        thumbnail:`${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
       },
       {
-        original: BB2,
-        thumbnail: BB2,
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
       },
       {
-        original: BB3,
-        thumbnail: BB3,
+        original:`${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
       },
       {
-        original: BB4,
-        thumbnail: BB4,
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
       },
       {
-        original: BB5,
-        thumbnail: BB5,
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
+      },
+
+      {
+        original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
       },
     ],
     categorie_location: [
@@ -217,16 +216,16 @@ const CarsInfo = [
     speed: "250km/h",
     image: [
       {
-        original: RR2,
-        thumbnail: RR2,
+        original: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
       },
       {
-        original: RR1,
-        thumbnail: RR1,
+        original: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
       },
       {
-        original: RR3,
-        thumbnail: RR3,
+        original: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
       },
     ],
     categorie_location: [
@@ -260,8 +259,29 @@ const CarsInfo = [
     speed: "305km/h",
     image: [
       {
-        original: URUS1,
-        thumbnail: URUS1,
+        original: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
+      },
+      {
+        original: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
+      },
+
+      {
+        original: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
+      },
+      {
+        original: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
       },
     ],
     categorie_location: ["location de voiture"],
@@ -291,20 +311,20 @@ const CarsInfo = [
     speed: "320km/h",
     image: [
       {
-        original: MAZ1,
-        thumbnail: MAZ1,
+        original: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
       },
       {
-        original: MAZ2,
-        thumbnail: MAZ2,
+        original: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
       },
       {
-        original: MAZ3,
-        thumbnail: MAZ3,
+        original: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
       },
       {
-        original: MAZ4,
-        thumbnail: MAZ4,
+        original: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
+        thumbnail: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
       },
     ],
     categorie_location: ["location de voiture"],

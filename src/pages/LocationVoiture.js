@@ -1,75 +1,6 @@
 import React, { useState } from "react";
 import "../elements/gallery/Gallery.module.scss";
 import BlogList from "../components/blog/itemProp/BlogList";
-import RR1 from "./Cars/RRCULINAN/1.jpg";
-import RR2 from "./Cars/RRCULINAN/2.jpg";
-import RR3 from "./Cars/RRCULINAN/3.jpg";
-import T1 from "./Cars/TESTLA_Y/1.jpg";
-import T2 from "./Cars/TESTLA_Y/2.jpg";
-import T3 from "./Cars/TESTLA_Y/3.jpg";
-import BB1 from "./Cars/BENTLEY_BENTAYGA/1.jpg";
-import BB2 from "./Cars/BENTLEY_BENTAYGA/2.jpg";
-import BB3 from "./Cars/BENTLEY_BENTAYGA/3.jpg";
-import BB4 from "./Cars/BENTLEY_BENTAYGA/4.jpg";
-import BB5 from "./Cars/BENTLEY_BENTAYGA/5.jpg";
-import BB6 from "./Cars/BENTLEY_BENTAYGA/6.jpg";
-import BB7 from "./Cars/BENTLEY_BENTAYGA/7.jpg";
-import BB8 from "./Cars/BENTLEY_BENTAYGA/8.jpg";
-import BB9 from "./Cars/BENTLEY_BENTAYGA/9.jpg";
-import F1 from "./Cars/FERRARI296/1.jpg";
-import F2 from "./Cars/FERRARI296/2.jpg";
-import F3 from "./Cars/FERRARI296/3.jpg";
-import G1 from "./Cars/Mercedes_G/1.jpg";
-import G2 from "./Cars/Mercedes_G/2.jpg";
-import G3 from "./Cars/Mercedes_G/3.jpg";
-import G4 from "./Cars/Mercedes_G/4.jpg";
-import GLS1 from "./Cars/Mercedes_GLS/1.jpg";
-import GLS2 from "./Cars/Mercedes_GLS/2.jpg";
-import GLS3 from "./Cars/Mercedes_GLS/3.jpg";
-import P911 from "./Cars/Porshe_911/1.jpg";
-import GT31 from "./Cars/GT3/1.jpg";
-import GT32 from "./Cars/GT3/2.jpg";
-import GT33 from "./Cars/GT3/3.jpg";
-import GT34 from "./Cars/GT3/4.jpg";
-import RRV1 from "./Cars/RANGE_ROVER_VOGUE/1.jpg";
-import RRV2 from "./Cars/RANGE_ROVER_VOGUE/2.jpg";
-import RRV3 from "./Cars/RANGE_ROVER_VOGUE/3.jpg";
-import RRV4 from "./Cars/RANGE_ROVER_VOGUE/4.jpg";
-import MACAN1 from "./Cars/Porshe_MACAN/1.jpg";
-import MACAN2 from "./Cars/Porshe_MACAN/2.jpg";
-import MACAN3 from "./Cars/Porshe_MACAN/3.jpg";
-import MACAN4 from "./Cars/Porshe_MACAN/4.jpg";
-import MAZ1 from "./Cars/MAZERATI/1.jpg";
-import MAZ2 from "./Cars/MAZERATI/2.jpg";
-import MAZ3 from "./Cars/MAZERATI/3.jpg";
-import MAZ4 from "./Cars/MAZERATI/4.jpg";
-import PCUT1 from "./Cars/911_992_CUT/1.jpg";
-import PCUT2 from "./Cars/911_992_CUT/1.jpg";
-import PCUT3 from "./Cars/911_992_CUT/1.jpg";
-import S1 from "./Cars/MERCEDES_S/1.jpg";
-import S2 from "./Cars/MERCEDES_S/2.jpg";
-import S3 from "./Cars/MERCEDES_S/3.jpg";
-import S4 from "./Cars/MERCEDES_S/4.jpg";
-import S5 from "./Cars/MERCEDES_S/5.jpg";
-import V1 from "./Cars/MERCEDES_V/1.jpeg";
-import GTC1 from "./Cars/BENTLEY_GTC/1.jpg";
-import GTC2 from "./Cars/BENTLEY_GTC/2.jpg";
-import BTC1 from "./Cars/BENTLEY_CONTINENTAL/1.jpg";
-import BTC2 from "./Cars/BENTLEY_CONTINENTAL/2.jpg";
-import BTC3 from "./Cars/BENTLEY_CONTINENTAL/3.jpg";
-import BTC4 from "./Cars/BENTLEY_CONTINENTAL/4.jpg";
-import URUS1 from "./Cars/URUS/1.jpg";
-import URUS2 from "./Cars/URUS/2.JPG";
-import URUS3 from "./Cars/URUS/3.JPG";
-import URUS4 from "./Cars/URUS/4.JPG";
-import URUS5 from "./Cars/URUS/5.JPG";
-import URUS6 from "./Cars/URUS/6.JPG";
-import M1 from "./Cars/MACAN/1.JPG";
-import M2 from "./Cars/MACAN/2.jpg";
-import M3 from "./Cars/MACAN/3.jpg";
-import M4 from "./Cars/MACAN/4.jpg";
-import M5 from "./Cars/MACAN/5.jpg";
-import M6 from "./Cars/MACAN/6.jpg";
 import { DropdownList } from "react-widgets";
 import { useLocation } from "react-router-dom";
 import B from "./Mac/Berline.jpeg";
@@ -82,6 +13,9 @@ import CC from "./Mac/CC.jpeg";
 import FooterFour from "../common/footer/FooterFour";
 import HeaderMain from "../common/header/HeaderMain";
 const LocationVoiture = () => {
+  const FirebaseStorage1=`https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/`
+  const FirebaseStorage2='?alt=media&token=73f41327-4bc0-4da9-a2ea-7e452085d11b'
+  const Fire2ForUrus='?alt=media&token=0c588385-12e3-4850-9b6d-de93a74fe7e8'
   const CarsInfo = [
     {
       id: 0,
@@ -107,20 +41,20 @@ const LocationVoiture = () => {
       speed: "248km/h",
       image: [
         {
-          original: MACAN1,
-          thumbnail: MACAN1,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN2,
-          thumbnail: MACAN2,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN3,
-          thumbnail: MACAN3,
+          original: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: MACAN4,
-          thumbnail: MACAN4,
+          original:`${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_MACAN%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -156,20 +90,20 @@ const LocationVoiture = () => {
       speed: "225km/h",
       image: [
         {
-          original: RRV1,
-          thumbnail: RRV1,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV2,
-          thumbnail: RRV2,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV3,
-          thumbnail: RRV3,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: RRV4,
-          thumbnail: RRV4,
+          original: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RANGE_ROVER_VOGUE%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       type: "SUV",
@@ -199,41 +133,41 @@ const LocationVoiture = () => {
       speed: "301km/h",
       image: [
         {
-          original: BB8,
-          thumbnail: BB8,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
+          thumbnail:`${FirebaseStorage1}BENTLEY_BENTAYGA%2F8.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB1,
-          thumbnail: BB1,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB2,
-          thumbnail: BB2,
+          original:`${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB3,
-          thumbnail: BB3,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB4,
-          thumbnail: BB4,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F4.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB5,
-          thumbnail: BB5,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F5.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB6,
-          thumbnail: BB6,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F6.jpg${FirebaseStorage2}`,
         },
         {
-          original: BB7,
-          thumbnail: BB7,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F7.jpg${FirebaseStorage2}`,
         },
 
         {
-          original: BB9,
-          thumbnail: BB9,
+          original: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_BENTAYGA%2F9.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -268,16 +202,16 @@ const LocationVoiture = () => {
       speed: "250km/h",
       image: [
         {
-          original: RR2,
-          thumbnail: RR2,
+          original: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: RR1,
-          thumbnail: RR1,
+          original: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: RR3,
-          thumbnail: RR3,
+          original: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}RRCULINAN%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -311,29 +245,29 @@ const LocationVoiture = () => {
       speed: "305km/h",
       image: [
         {
-          original: URUS3,
-          thumbnail: URUS3,
+          original: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F5.JPG${Fire2ForUrus}`,
         },
         {
-          original: URUS2,
-          thumbnail: URUS2,
+          original: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F3.JPG${FirebaseStorage2}`,
         },
 
         {
-          original: URUS4,
-          thumbnail: URUS4,
+          original: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F2.JPG${FirebaseStorage2}`,
         },
         {
-          original: URUS5,
-          thumbnail: URUS5,
+          original: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F4.JPG${FirebaseStorage2}`,
         },
         {
-          original: URUS6,
-          thumbnail: URUS6,
+          original: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F6.JPG${FirebaseStorage2}`,
         },
         {
-          original: URUS1,
-          thumbnail: URUS1,
+          original: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}URUS%2F1.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -363,20 +297,20 @@ const LocationVoiture = () => {
       speed: "320km/h",
       image: [
         {
-          original: MAZ1,
-          thumbnail: MAZ1,
+          original: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ2,
-          thumbnail: MAZ2,
+          original: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ3,
-          thumbnail: MAZ3,
+          original: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: MAZ4,
-          thumbnail: MAZ4,
+          original: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MAZERATI%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -407,16 +341,16 @@ const LocationVoiture = () => {
       speed: "250km/h",
       image: [
         {
-          original: GLS1,
-          thumbnail: GLS1,
+          original: `${FirebaseStorage1}Mercedes_GLS%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_GLS%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: GLS2,
-          thumbnail: GLS2,
+          original: `${FirebaseStorage1}Mercedes_GLS%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_GLS%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: GLS3,
-          thumbnail: GLS3,
+          original: `${FirebaseStorage1}Mercedes_GLS%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_GLS%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -451,16 +385,16 @@ const LocationVoiture = () => {
       speed: "250km/h",
       image: [
         {
-          original: T1,
-          thumbnail: T1,
+          original: `${FirebaseStorage1}TESTLA_Y%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}TESTLA_Y%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: T2,
-          thumbnail: T2,
+          original: `${FirebaseStorage1}TESTLA_Y%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}TESTLA_Y%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: T3,
-          thumbnail: T3,
+          original: `${FirebaseStorage1}TESTLA_Y%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}TESTLA_Y%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -495,12 +429,12 @@ const LocationVoiture = () => {
       speed: "335km/h",
       image: [
         {
-          original: GTC2,
-          thumbnail: GTC2,
+          original:  `${FirebaseStorage1}BENTLEY_GTC%2F1.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}BENTLEY_GTC%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: GTC1,
-          thumbnail: GTC1,
+          original:  `${FirebaseStorage1}BENTLEY_GTC%2F2.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}BENTLEY_GTC%2F2.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -530,16 +464,16 @@ const LocationVoiture = () => {
       speed: "330km/h",
       image: [
         {
-          original: F1,
-          thumbnail: F1,
+          original:  `${FirebaseStorage1}FERRARI296%2F1.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}FERRARI296%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: F2,
-          thumbnail: F2,
+          original:  `${FirebaseStorage1}FERRARI296%2F2.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}FERRARI296%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: F3,
-          thumbnail: F3,
+          original:  `${FirebaseStorage1}FERRARI296%2F3.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}FERRARI296%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -570,24 +504,24 @@ const LocationVoiture = () => {
       speed: "250km/h",
       image: [
         {
-          original: S2,
-          thumbnail: S2,
+          original:  `${FirebaseStorage1}MERCEDES_S%2F2.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}MERCEDES_S%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: S1,
-          thumbnail: S1,
+          original:  `${FirebaseStorage1}MERCEDES_S%2F1.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}MERCEDES_S%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: S3,
-          thumbnail: S3,
+          original:  `${FirebaseStorage1}MERCEDES_S%2F3.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}MERCEDES_S%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: S4,
-          thumbnail: S4,
+          original:  `${FirebaseStorage1}MERCEDES_S%2F4.jpg${FirebaseStorage2}`,
+          thumbnail:  `${FirebaseStorage1}MERCEDES_S%2F4.jpg${FirebaseStorage2}`,
         },
         {
-          original: S5,
-          thumbnail: S5,
+          original: `${FirebaseStorage1}MERCEDES_S%2F5.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_S%2F5.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -621,20 +555,20 @@ const LocationVoiture = () => {
       speed: "301km/h",
       image: [
         {
-          original: BTC1,
-          thumbnail: BTC1,
+          original: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: BTC2,
-          thumbnail: BTC2,
+          original: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: BTC3,
-          thumbnail: BTC3,
+          original: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: BTC4,
-          thumbnail: BTC4,
+          original: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}BENTLEY_CONTINENTAL%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -664,28 +598,28 @@ const LocationVoiture = () => {
       speed: "261km/h",
       image: [
         {
-          original: M2,
-          thumbnail: M2,
+          original: `${FirebaseStorage1}MACAN%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: M3,
-          thumbnail: M3,
+          original: `${FirebaseStorage1}MACAN%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: M4,
-          thumbnail: M4,
+          original: `${FirebaseStorage1}MACAN%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F4.jpg${FirebaseStorage2}`,
         },
         {
-          original: M5,
-          thumbnail: M5,
+          original: `${FirebaseStorage1}MACAN%2F5.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F5.jpg${FirebaseStorage2}`,
         },
         {
-          original: M6,
-          thumbnail: M6,
+          original: `${FirebaseStorage1}MACAN%2F6.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F6.jpg${FirebaseStorage2}`,
         },
         {
-          original: M1,
-          thumbnail: M1,
+          original: `${FirebaseStorage1}MACAN%2F1.JPG${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MACAN%2F1.JPG${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -715,8 +649,8 @@ const LocationVoiture = () => {
       speed: "308km/h",
       image: [
         {
-          original: P911,
-          thumbnail: P911,
+          original: `${FirebaseStorage1}Porshe_911%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Porshe_911%2F1.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -746,16 +680,16 @@ const LocationVoiture = () => {
       speed: "308km/h",
       image: [
         {
-          original: PCUT1,
-          thumbnail: PCUT1,
+          original:`${FirebaseStorage1}911_992_CUT%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}911_992_CUT%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: PCUT2,
-          thumbnail: PCUT2,
+          original: `${FirebaseStorage1}911_992_CUT%2F2.jpg${FirebaseStorage2}`,
+          thumbnail:`${FirebaseStorage1}911_992_CUT%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: PCUT3,
-          thumbnail: PCUT3,
+          original:`${FirebaseStorage1}911_992_CUT%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}911_992_CUT%2F3.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -785,20 +719,20 @@ const LocationVoiture = () => {
       speed: "317km/h",
       image: [
         {
-          original: GT34,
-          thumbnail: GT34,
+          original: `${FirebaseStorage1}GT3%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}GT3%2F4.jpg${FirebaseStorage2}`,
         },
         {
-          original: GT32,
-          thumbnail: GT32,
+          original: `${FirebaseStorage1}GT3%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}GT3%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: GT33,
-          thumbnail: GT33,
+          original: `${FirebaseStorage1}GT3%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}GT3%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: GT31,
-          thumbnail: GT31,
+          original: `${FirebaseStorage1}GT3%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}GT3%2F1.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: ["location de voiture"],
@@ -830,8 +764,8 @@ const LocationVoiture = () => {
       speed: "194km/h",
       image: [
         {
-          original: V1,
-          thumbnail: V1,
+          original: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -866,20 +800,20 @@ const LocationVoiture = () => {
       speed: "280km/h",
       image: [
         {
-          original: G1,
-          thumbnail: G1,
+          original: `${FirebaseStorage1}Mercedes_G%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_G%2F1.jpg${FirebaseStorage2}`,
         },
         {
-          original: G2,
-          thumbnail: G2,
+          original: `${FirebaseStorage1}Mercedes_G%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_G%2F2.jpg${FirebaseStorage2}`,
         },
         {
-          original: G3,
-          thumbnail: G3,
+          original: `${FirebaseStorage1}Mercedes_G%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_G%2F3.jpg${FirebaseStorage2}`,
         },
         {
-          original: G4,
-          thumbnail: G4,
+          original: `${FirebaseStorage1}Mercedes_G%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}Mercedes_G%2F4.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -939,6 +873,7 @@ const LocationVoiture = () => {
                   "ROLLS ROYCE",
                   "Range Rover",
                   "Maybach",
+                  "MASERATI"
                 ]}
               />
             </div>
