@@ -38,8 +38,9 @@ const ServiceFive = ({ textAlign, serviceStyle }) => {
     <div className="row row--15 service-wrapper">
       {ServiceList.map((val, i) => (
         <div
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer",backgroundColor:"#fff" }}
           onClick={handleClick(val.Link ? val.Link : "")}
+          
           className="col-lg-4 col-md-6 col-sm-12 col-12"
           key={i}
         >
@@ -48,10 +49,10 @@ const ServiceFive = ({ textAlign, serviceStyle }) => {
             animateOut="fadeInOut"
             animateOnce={true}
           >
-            <div className={`service ${serviceStyle} ${textAlign}`}>
+            <div style={{background:"#f5f8fa"}} className={`service ${serviceStyle} ${textAlign}`}>
               <div className="inner">
                 <div className="content">
-                  <h4 className="title">
+                  <h4 style={{color:"black"}} className="title">
                     <Link
                       to={{
                         pathname: "/Location-Voiture",
@@ -60,7 +61,7 @@ const ServiceFive = ({ textAlign, serviceStyle }) => {
                       dangerouslySetInnerHTML={{ __html: val.title }}
                     ></Link>
                   </h4>
-                  <p
+                  <p style={{color:"black"}}
                     className="description"
                     dangerouslySetInnerHTML={{ __html: val.description }}
                   ></p>

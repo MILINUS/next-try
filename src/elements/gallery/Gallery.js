@@ -445,7 +445,7 @@ const Elements = ({ props }) => {
               </div>
               <div className="cols-xs-12 cols-sm-12 cols-md-4">
                 <form className={styles.car_info_section}>
-                  <h6 htmlFor="fromDate">PRISE EN CHARGE & DESTINATION</h6>
+                  <h6 style={{color:"black"}} htmlFor="fromDate">PRISE EN CHARGE & DESTINATION</h6>
                   <div className={styles.big_separator} />
 
                   {service === "transfert avec chauffeur" ? (
@@ -541,7 +541,7 @@ const Elements = ({ props }) => {
                 {service === "location de voiture" ? (
                   <div className={styles.car_info_section}>
                     <div>
-                      <h6>TARIFS</h6>
+                      <h6 style={{color:"black"}}>TARIFS</h6>
                       <table className={styles.rates}>
                         <tbody>
                           <tr>
@@ -571,7 +571,7 @@ const Elements = ({ props }) => {
                 ) : service === "location avec chauffeur" ? (
                   <div className={styles.car_info_section}>
                     <div>
-                      <h6>TARIFS</h6>
+                      <h6 style={{color:"black"}}>TARIFS</h6>
                       <table className={styles.rates}>
                         <tbody>
                           <tr>
@@ -596,7 +596,7 @@ const Elements = ({ props }) => {
                   </div>
                 ) : service === "transfert avec chauffeur" ? (
                   <div className={styles.car_info_section}>
-                    <h6 className="yellow-underline">Date & Heure</h6>
+                    <h6 style={{color:"black"}} className="yellow-underline">Date & Heure</h6>
                     <div
                       style={{ marginLeft: 12 }}
                       className="Date_plus_time_container"
@@ -623,7 +623,7 @@ const Elements = ({ props }) => {
                 ) : null}
 
                 <div className={styles.car_info_section}>
-                  <h6>CARACTÉRISTIQUES DU VÉHICULE</h6>
+                  <h6 style={{color:"black"}}>CARACTÉRISTIQUES DU VÉHICULE</h6>
                   <div
                     className="row_s  row_s_special"
                     style={{ marginLeft: 10 }}
@@ -758,7 +758,7 @@ const Elements = ({ props }) => {
                   </div>
                 </div>
                 <form className={styles.car_info_section}>
-                  <h6 htmlFor="fromDate">CHANGER DE SERVICE</h6>
+                  <h6 style={{color:"black"}} htmlFor="fromDate">CHANGER DE SERVICE</h6>
                   <div className={styles.big_separator} />
                   <div>
                     <DropdownList
@@ -796,7 +796,7 @@ const Elements = ({ props }) => {
                 </div>
               ))}
             </div> */}
-              <div>
+              <div style={{backgroundColor:"#ececec"}}>
                 <CarsSlider
                   serviceStyle="gallery-style"
                   textAlign="text-start"

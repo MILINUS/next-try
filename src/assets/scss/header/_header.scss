@@ -112,11 +112,11 @@
         background-image: none;
 
         @media #{$md-layout} {
-            background-color: var(--color-darker);
+            // background-color: var(--color-darker);
         }
 
         @media #{$sm-layout} {
-            background-color: var(--color-darker);
+            // background-color: var(--color-darker);
         }
     }
 }
@@ -124,7 +124,7 @@
 
 
 .hamberger-button {
-    background: var(--color-blackest);
+    background: var(--color-darker);
     border: 0 none;
     color: var(--color-white);
     width: 40px;

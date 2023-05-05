@@ -59,6 +59,8 @@ const Reservation = ({ props }) => {
   }
   const [TimeValue, setTimeValue] = useState("10:00");
   const [TimeValue2, setTimeValue2] = useState("14:00");
+  const [cp, setCp] = useState("");
+  const [city, setCity] = useState("");
   const onChange = (time) => {
     setTimeValue(time);
     getDeparturHour(TimeValue);
@@ -145,6 +147,7 @@ const Reservation = ({ props }) => {
       }
     }
   };
+ 
   const RealFranchise = checked3
     ? CarData.reductedFranchise
     : CarData.franchise;
@@ -174,115 +177,146 @@ const Reservation = ({ props }) => {
       setArrivalHour(new Date(TimeValue2.$d).getHours());
     }
   }, [TimeValue, TimeValue2, HourlyRate, TimeSpent]);
+  const ChauffLocationPrice = HourlyRate * TimeSpent;
   return (
     <>
       <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
-      <HeaderMain/>
-        <div style={{ background: "#ececec" }}>
-          <section
-            style={{ background: "#ececec", marginRight: 15, marginBottom: -50 }}
-            className="car-booking"
-          >
-            <div className="Car_container">
-              <div style={{ boxSizing: "border-box" }}>
-                <div className="r-sec-head r-sec-left-head title_container">
-                  <h2>
-                    <b>{CarData.title}</b>
-                  </h2>
-                  <span>
-                    <div className="horizontal-yellow-line"></div>
-                    {CarData.subtitle}
-                  </span>
-                </div>
-                <div className="row_s_resa">
-                  <div className="cols-sm-170 cols-sm-12 cols-md-7">
-                    {/* <ImageGallery items={CarData.image} /> */}
+      <HeaderMain />
+      <div style={{ background: "#ececec" }}>
+        <section
+          style={{ background: "#ececec", marginRight: 15, marginBottom: -50 }}
+          className="car-booking"
+        >
+          <div className="Car_container">
+            <div style={{ boxSizing: "border-box" }}>
+              <div className="r-sec-head r-sec-left-head title_container">
+                <h2>
+                  <b>{CarData.title}</b>
+                </h2>
+                <span>
+                  <div className="horizontal-yellow-line"></div>
+                  {CarData.subtitle}
+                </span>
+              </div>
+              <div className="row_s_resa">
+                <div className="cols-sm-170 cols-sm-12 cols-md-7">
+                  {/* <ImageGallery items={CarData.image} /> */}
 
-                    <ImageGallery items={CarData.image} />
+                  <ImageGallery items={CarData.image} />
 
-                    <table className="booking-bill">
-                      <tbody>
-                        <tr style={{ borderBottom: "1.3px solid grey" }}>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            Service
-                          </td>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            {location.state.service
-                              ? location.state.service
-                              : "location de voiture"}
-                          </td>
-                        </tr>
-                        <tr style={{ borderBottom: "1.3px solid grey" }}>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            Date &amp; heure de début
-                          </td>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            {formatDate(startDate)},{departurHour}:
-                            {departureMinute}
-                            {/* ,{TimeValue2} */}
-                          </td>
-                        </tr>
-                        <tr style={{ borderBottom: "1.3px solid grey" }}>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            Date &amp; heure de fin
-                          </td>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            {formatDate(endDate)},{arrivalHour}:{arrivalMinute}
-                          </td>
-                        </tr>
-                        <tr style={{ borderBottom: "1.3px solid grey" }}>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            Nombre de jours
-                          </td>
-                          <td style={{ fontWeight: 600, fontSize: 15 }}>
-                            {NumberOfDays >= 0 ? NumberOfDays : 0}
-                          </td>
-                        </tr>
-                        {location.state.service === "location de voiture" ? (
-                          <>
-                            <tr style={{ borderBottom: "1.3px solid grey" }}>
-                              <td style={{ fontWeight: 600, fontSize: 15 }}>
-                                Kilométrage Inclus
-                              </td>
-
-                              <td style={{ fontWeight: 600, fontSize: 15 }}>
-                                {NumberOfDays*200}km
-                              </td>
-                            </tr>
-                          </>
-                        ) : (
-                         null
-                        )}
-                        {location.state.service ===
-                        "location avec chauffeur" ? (
+                  <table className="booking-bill">
+                    <tbody>
+                      <tr style={{ borderBottom: "1.3px solid grey" }}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          Service
+                        </td>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          {location.state.service
+                            ? location.state.service
+                            : "location de voiture"}
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: "1.3px solid grey" }}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          Date &amp; heure de début
+                        </td>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          {formatDate(startDate)},{departurHour}:
+                          {departureMinute}
+                          {/* ,{TimeValue2} */}
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: "1.3px solid grey" }}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          Date &amp; heure de fin
+                        </td>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          {formatDate(endDate)},{arrivalHour}:{arrivalMinute}
+                        </td>
+                      </tr>
+                      <tr style={{ borderBottom: "1.3px solid grey" }}>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          Nombre de jours
+                        </td>
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          {NumberOfDays >= 0 ? NumberOfDays : 0}
+                        </td>
+                      </tr>
+                      {location.state.service === "location de voiture" ? (
+                        <>
                           <tr style={{ borderBottom: "1.3px solid grey" }}>
-                            <td style={{ fontWeight: 600, fontSize: 15 }}>
-                              Nombre Total d'Heures
+                            <td
+                              style={{
+                                fontWeight: 600,
+                                fontSize: 15,
+                                color: "black",
+                              }}
+                            >
+                              Kilométrage Inclus
                             </td>
 
-                            <td style={{ fontWeight: 600, fontSize: 15 }}>
-                              {TimeSpent}H
+                            <td
+                              style={{
+                                fontWeight: 600,
+                                fontSize: 15,
+                                color: "black",
+                              }}
+                            >
+                              {NumberOfDays * 200}km
                             </td>
                           </tr>
-                        ) : null}
-
-                        {location.state.service === "location de voiture" ? (
-                          <tr style={{ borderBottom: "1.3px solid grey" }}>
-                            <td style={{ fontWeight: 600, fontSize: 15 }}>
-                              *Franchise
-                            </td>
-                            <td style={{ fontWeight: 600, fontSize: 15 }}>
-                              <span>
-                                {checked3
-                                  ? CarData.reductedFranchise
-                                  : CarData.franchise}
-                                €
-                              </span>
-                            </td>
-                          </tr>
-                        ) : null}
-
-                        <tr className="booking-price-container">
+                        </>
+                      ) : null}
+                      {location.state.service === "location avec chauffeur" ? (
+                        <tr style={{ borderBottom: "1.3px solid grey" }}>
                           <td
                             style={{
                               fontWeight: 600,
@@ -290,456 +324,529 @@ const Reservation = ({ props }) => {
                               color: "black",
                             }}
                           >
-                            Montant total
+                            Nombre Total d'Heures
                           </td>
-                          {location.state.service === "location de voiture" ? (
-                            <td
-                              style={{
-                                fontWeight: 600,
-                                fontSize: 15,
-                                color: "black",
-                              }}
-                            >
-                              <span className="pull-right booking-price">
-                                {startDate <= endDate ? Price : 0}€
-                              </span>
-                            </td>
-                          ) : (
-                            <td
-                              style={{
-                                fontWeight: 600,
-                                fontSize: 15,
-                                color: "black",
-                              }}
-                            >
-                              <span className="pull-right booking-price">
-                                {startDate <= endDate
-                                  ? HourlyRate * TimeSpent
-                                  : 0}
-                                €
-                              </span>
-                            </td>
-                          )}
-                        </tr>
-                      </tbody>
-                    </table>
-                    <div
-                      style={{ boxSizing: "border-box", width: "175%" }}
-                      className="specailForm"
-                    >
-                      <ContactInForm
-                        franchise={RealFranchise}
-                        isSpecialFranchise={checked3}
-                        departureLocation={departureLocation}
-                        arrivalLocation={arrivalLocation}
-                        Price={Price}
-                        NumberOfDays={NumberOfDays}
-                        service={location.state.service}
-                        carData={location.state.data}
-                        startDate={formatDate(startDate)}
-                        endDate={formatDate(endDate)}
-                      />
-                    </div>
-                  </div>
-                  <div className="  cols-xs-12 cols-sm-12 cols-md-5">
-                    <div className="extra-features">
-                      <form className={styles.car_info_section}>
-                        <h6 htmlFor="fromDate">
-                          MODIFIER LES DATES DE RÉSERVATION
-                        </h6>
-                        <div className={styles.big_separator} />
-                        <div className={styles.formgroup}>
-                          <DatePicker
-                            value={startDate}
-                            onChange={(value) => {
-                              setStarteDate(value);
-                            }}
-                            id="fromDate"
-                            selected={null}
-                          />
-                        </div>
-                        <div className={styles.formgroup}>
-                          <DatePicker
-                            value={endDate}
-                            onChange={(value) => setEndDate(value)}
-                            id="toDate"
-                            selected={null}
-                          />
-                          {endDate < startDate && (
-                            <span
-                              style={{
-                                color: "red",
-                                fontSize: 10,
-                                marginLeft: 10,
-                              }}
-                            >
-                              La date D'arrivée ne peut etre avant la Date de
-                              départ
-                            </span>
-                          )}
-                        </div>
-                      </form>
-                      <form className={styles.car_info_section} action="#">
-                        {location.state.service === "location de voiture" ? (
-                          <>
-                            <h6 htmlFor="fromDate">Services additionnels</h6>
-                            <div className={styles.big_separator} />
-                            <div className="row">
-                              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <div
-                                  className="clearfix r-site-checkbox"
-                                  style={{ display: "flex", fontSize: 13 }}
-                                >
-                                  <Checkbox
-                                    value={checked}
-                                    onChange={() => setChecked(!checked)}
-                                    {...label}
-                                  />
-                                  <label style={{ marginTop: 5 }}>
-                                    Réhausseur enfant (Sur demande)
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <div
-                                  className="clearfix r-site-checkbox"
-                                  style={{ display: "flex", fontSize: 13 }}
-                                >
-                                  <Checkbox
-                                    value={checked1}
-                                    onChange={() => setChecked1(!checked1)}
-                                    {...label}
-                                  />
-                                  <label style={{ marginTop: 5 }}>
-                                    Siège Bébé (Sur demande)
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
-                                <div
-                                  className="clearfix r-site-checkbox"
-                                  style={{ display: "flex", fontSize: 13 }}
-                                >
-                                  <Checkbox
-                                    value={checked2}
-                                    onChange={() => setChecked2(!checked2)}
-                                    {...label}
-                                  />
-                                  <label style={{ marginTop: 5 }}>
-                                    Conducteur supplémentaire (Sur demande)
-                                  </label>
-                                </div>
-                              </div>
-                              <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
-                                <div
-                                  className="clearfix r-site-checkbox"
-                                  style={{ display: "flex", fontSize: 13 }}
-                                >
-                                  <Checkbox
-                                    value={checked3}
-                                    onChange={() => setChecked3(!checked3)}
-                                    {...label}
-                                  />
-                                  <label style={{ marginTop: 5 }}>
-                                    Assurence pour réduire la Franchise a{" "}
-                                    {CarData.reductedFranchise}€ (
-                                    {CarData.AssReduc}€ par Jour )
-                                  </label>
-                                </div>
-                              </div>
-                            </div>
-                          </>
-                        ) : (
-                          <>
-                            <h6 htmlFor="fromDate">
-                              Choisissez chaque jour le créneau horaire de votre
-                              choix
-                            </h6>
-                            <div className={styles.big_separator} />
-                            <div
-                              style={{
-                                marginTop: -20,
-                                marginBottom: 30,
-                                display: "flex",
-                                flexDirection: "row",
-                              }}
-                            >
-                              <span
-                                style={{
-                                  fontSize: 12,
-                                  color: "black",
-                                  fontWeight: "lighter",
-                                }}
-                              >
-                                {day} {formatDate(startDate).split("-")[2]}{" "}
-                                {month} {formatDate(startDate).split("-")[0]}
-                              </span>
-                              <div style={{ width: 50 }} />
-                              <span
-                                style={{
-                                  fontSize: 12,
-                                  color: "black",
-                                  fontWeight: "lighter",
-                                }}
-                              >
-                                {dayBack} {formatDate(endDate).split("-")[2]}{" "}
-                                {monthBack} {formatDate(endDate).split("-")[0]}
-                              </span>
-                            </div>
 
-                            <div
-                              style={{
-                                display: "flex",
-                                alignItems: "center",
-                              }}
-                            >
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  marginTop: -25,
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color: "black",
-                                    fontSize: 10,
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Heure de Départ
-                                </span>
-                                <TimePicker
-                                  onChange={onChange}
-                                  defaultValue={dayjs(TimeValue, format)}
-                                  format={format}
-                                />
-                              </div>
-                              <div style={{ width: 50 }} />
-                              <div
-                                style={{
-                                  display: "flex",
-                                  flexDirection: "column",
-                                  marginTop: -25,
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color: "black",
-                                    fontSize: 10,
-                                    fontWeight: "bold",
-                                  }}
-                                >
-                                  Heure d'Arrivée
-                                </span>
-                                <TimePicker
-                                  onChange={onChange2}
-                                  defaultValue={dayjs(TimeValue2, format)}
-                                  format={format}
-                                />
-                              </div>
-                            </div>
-                          </>
-                        )}
-                      </form>
-                      <form className={styles.car_info_section}>
-                        <h6 htmlFor="fromDate">
-                          PRISE EN CHARGE & DESTINATION
-                        </h6>
-                        <div className={styles.big_separator} />
+                          <td
+                            style={{
+                              fontWeight: 600,
+                              fontSize: 15,
+                              color: "black",
+                            }}
+                          >
+                            {TimeSpent}H
+                          </td>
+                        </tr>
+                      ) : null}
+
+                      {location.state.service === "location de voiture" ? (
+                        <tr style={{ borderBottom: "1.3px solid grey" }}>
+                          <td
+                            style={{
+                              fontWeight: 600,
+                              fontSize: 15,
+                              color: "black",
+                            }}
+                          >
+                            *Franchise
+                          </td>
+                          <td
+                            style={{
+                              fontWeight: 600,
+                              fontSize: 15,
+                              color: "black",
+                            }}
+                          >
+                            <span>
+                              {checked3
+                                ? CarData.reductedFranchise
+                                : CarData.franchise}
+                              €
+                            </span>
+                          </td>
+                        </tr>
+                      ) : null}
+
+                      <tr className="booking-price-container">
+                        <td
+                          style={{
+                            fontWeight: 600,
+                            fontSize: 15,
+                            color: "black",
+                          }}
+                        >
+                          Montant total
+                        </td>
                         {location.state.service === "location de voiture" ? (
-                          <>
-                            {" "}
-                            <div
-                              style={{
-                                display: "flex",
-                                flexDirection: "row",
-                                justifyContent: "space-between",
-                                marginLeft: -10,
-                              }}
-                            >
+                          <td
+                            style={{
+                              fontWeight: 600,
+                              fontSize: 15,
+                              color: "black",
+                            }}
+                          >
+                            <span className="pull-right booking-price">
+                              {startDate <= endDate ? Price : 0}€
+                            </span>
+                          </td>
+                        ) : (
+                          <td
+                            style={{
+                              fontWeight: 600,
+                              fontSize: 15,
+                              color: "black",
+                            }}
+                          >
+                            <span className="pull-right booking-price">
+                              {startDate <= endDate
+                                ? ChauffLocationPrice
+                                : 0}
+                              €
+                            </span>
+                          </td>
+                        )}
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div
+                    style={{ boxSizing: "border-box", width: "175%" }}
+                    className="specailForm"
+                  >
+                    <ContactInForm
+                    ChauffLocationPrice={ChauffLocationPrice}
+                      TimeSpent={TimeSpent}
+                      arrivalHour={arrivalHour}
+                      departurHour={departurHour}
+                      specialWidth={65}
+                      cp={cp}
+                      city={city}
+                      adresse={adresse}
+                      franchise={RealFranchise}
+                      isSpecialFranchise={checked3}
+                      departureLocation={departureLocation}
+                      arrivalLocation={arrivalLocation}
+                      Price={Price}
+                      NumberOfDays={NumberOfDays}
+                      service={location.state.service}
+                      carData={location.state.data}
+                      startDate={formatDate(startDate)}
+                      endDate={formatDate(endDate)}
+                    />
+                  </div>
+                </div>
+                <div className="  cols-xs-12 cols-sm-12 cols-md-5">
+                  <div className="extra-features">
+                    <form className={styles.car_info_section}>
+                      <h6 style={{ color: "black" }} htmlFor="fromDate">
+                        MODIFIER LES DATES DE RÉSERVATION
+                      </h6>
+                      <div className={styles.big_separator} />
+                      <div className={styles.formgroup}>
+                        <DatePicker
+                          value={startDate}
+                          onChange={(value) => {
+                            setStarteDate(value);
+                          }}
+                          id="fromDate"
+                          selected={null}
+                        />
+                      </div>
+                      <div className={styles.formgroup}>
+                        <DatePicker
+                          value={endDate}
+                          onChange={(value) => setEndDate(value)}
+                          id="toDate"
+                          selected={null}
+                        />
+                        {endDate < startDate && (
+                          <span
+                            style={{
+                              color: "red",
+                              fontSize: 10,
+                              marginLeft: 10,
+                            }}
+                          >
+                            La date D'arrivée ne peut etre avant la Date de
+                            départ
+                          </span>
+                        )}
+                      </div>
+                    </form>
+                    <form className={styles.car_info_section} action="#">
+                      {location.state.service === "location de voiture" ? (
+                        <>
+                          <h6 style={{ color: "black" }} htmlFor="fromDate">
+                            Services additionnels
+                          </h6>
+                          <div className={styles.big_separator} />
+                          <div className="row">
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
                               <div
-                                style={{
-                                  display: "block",
-                                  flexDirection: "column",
-                                  width: "50%",
-                                }}
+                                className="clearfix r-site-checkbox"
+                                style={{ display: "flex", fontSize: 13 }}
                               >
-                                <span
-                                  style={{
-                                    color: "black",
-                                    fontSize: 13,
-                                    marginLeft: 10,
-                                  }}
-                                >
-                                  Ville De départ
-                                </span>
-                                <DropdownList
-                                  style={{ margin: "0 10px" }}
-                                  value={departureLocation}
-                                  onChange={(nextValue) =>
-                                    setDepartureLocation(nextValue)
-                                  }
-                                  className="dropdown_customized"
-                                  data={DepartureLocations}
-                                  id="drop"
-                                  selected={null}
+                                <Checkbox
+                                  value={checked}
+                                  onChange={() => setChecked(!checked)}
+                                  {...label}
                                 />
-                              </div>
-                              <div style={{ width: 20 }} />
-                              <div
-                                style={{
-                                  display: "block",
-                                  flexDirection: "column",
-                                  width: "50%",
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    color: "black",
-                                    fontSize: 13,
-                                    marginLeft: 10,
-                                  }}
-                                >
-                                  Ville De retour
-                                </span>
-                                <DropdownList
-                                  style={{ margin: "0 10px" }}
-                                  value={arrivalLocation}
-                                  onChange={(nextValue) =>
-                                    setArrivalLocation(nextValue)
-                                  }
-                                  className="dropdown_customized"
-                                  data={DepartureLocations}
-                                  id="drop"
-                                  selected={null}
-                                />
+                                <label style={{ marginTop: 5 }}>
+                                  Réhausseur enfant (Sur demande)
+                                </label>
                               </div>
                             </div>
-                          </>
-                        ) : (
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div
+                                className="clearfix r-site-checkbox"
+                                style={{ display: "flex", fontSize: 13 }}
+                              >
+                                <Checkbox
+                                  value={checked1}
+                                  onChange={() => setChecked1(!checked1)}
+                                  {...label}
+                                />
+                                <label style={{ marginTop: 5 }}>
+                                  Siège Bébé (Sur demande)
+                                </label>
+                              </div>
+                            </div>
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6">
+                              <div
+                                className="clearfix r-site-checkbox"
+                                style={{ display: "flex", fontSize: 13 }}
+                              >
+                                <Checkbox
+                                  value={checked2}
+                                  onChange={() => setChecked2(!checked2)}
+                                  {...label}
+                                />
+                                <label style={{ marginTop: 5 }}>
+                                  Conducteur supplémentaire (Sur demande)
+                                </label>
+                              </div>
+                            </div>
+                            <div className="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                              <div
+                                className="clearfix r-site-checkbox"
+                                style={{ display: "flex", fontSize: 13 }}
+                              >
+                                <Checkbox
+                                  value={checked3}
+                                  onChange={() => setChecked3(!checked3)}
+                                  {...label}
+                                />
+                                <label style={{ marginTop: 5 }}>
+                                  Assurence pour réduire la Franchise a{" "}
+                                  {CarData.reductedFranchise}€ (
+                                  {CarData.AssReduc}€ par Jour )
+                                </label>
+                              </div>
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <>
+                          <h6 style={{ color: "black" }} htmlFor="fromDate">
+                            Choisissez chaque jour le créneau horaire de votre
+                            choix
+                          </h6>
+                          <div className={styles.big_separator} />
                           <div
-                            style={{ display: "flex", flexDirection: "column" }}
+                            style={{
+                              marginTop: -20,
+                              marginBottom: 30,
+                              display: "flex",
+                              flexDirection: "row",
+                            }}
                           >
                             <span
                               style={{
-                                fontSize: 10,
-                                fontWeight: "bold",
+                                fontSize: 12,
                                 color: "black",
+                                fontWeight: "lighter",
                               }}
                             >
-                              Adresse de Prise en Charge
+                              {day} {formatDate(startDate).split("-")[2]}{" "}
+                              {month} {formatDate(startDate).split("-")[0]}
                             </span>
-                            {/* <div style={{height:40}}/> */}
-                            <input
-                              style={{ borderRadius: 5 }}
-                              placeholder="Adresse de Prise en Charge"
-                              id="ADD"
-                              value={adresse}
-                              onChange={(e) => SetADresse(e.target.value)}
-                            />
-                            <div style={{ height: 20 }} />
-                            <div
-                              style={{ display: "flex", flexDirection: "row" }}
+                            <div style={{ width: 50 }} />
+                            <span
+                              style={{
+                                fontSize: 12,
+                                color: "black",
+                                fontWeight: "lighter",
+                              }}
                             >
-                              <input
-                                placeholder="Code Postale"
-                                id="CP"
-                                style={{ width: "50%", borderRadius: 5 }}
-                                value={adresse}
-                                onChange={(e) => SetADresse(e.target.value)}
+                              {dayBack} {formatDate(endDate).split("-")[2]}{" "}
+                              {monthBack} {formatDate(endDate).split("-")[0]}
+                            </span>
+                          </div>
+
+                          <div
+                            style={{
+                              display: "flex",
+                              alignItems: "center",
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                marginTop: -25,
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  fontSize: 10,
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Heure de Départ
+                              </span>
+                              <TimePicker
+                                onChange={onChange}
+                                defaultValue={dayjs(TimeValue, format)}
+                                format={format}
                               />
-                              <div style={{ width: 20 }} />
-                              <input
-                                placeholder="Ville"
-                                id="CITY"
-                                style={{ width: "50%", borderRadius: 5 }}
+                            </div>
+                            <div style={{ width: 50 }} />
+                            <div
+                              style={{
+                                display: "flex",
+                                flexDirection: "column",
+                                marginTop: -25,
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  fontSize: 10,
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                Heure d'Arrivée
+                              </span>
+                              <TimePicker
+                                onChange={onChange2}
+                                defaultValue={dayjs(TimeValue2, format)}
+                                format={format}
                               />
                             </div>
                           </div>
-                        )}
-                      </form>
-                    </div>
+                        </>
+                      )}
+                    </form>
+                    <form className={styles.car_info_section}>
+                      <h6 style={{ color: "black" }} htmlFor="fromDate">
+                        PRISE EN CHARGE & DESTINATION
+                      </h6>
+                      <div className={styles.big_separator} />
+                      {location.state.service === "location de voiture" ? (
+                        <>
+                          {" "}
+                          <div
+                            style={{
+                              display: "flex",
+                              flexDirection: "row",
+                              justifyContent: "space-between",
+                              marginLeft: -10,
+                            }}
+                          >
+                            <div
+                              style={{
+                                display: "block",
+                                flexDirection: "column",
+                                width: "50%",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  fontSize: 13,
+                                  marginLeft: 10,
+                                }}
+                              >
+                                Ville De départ
+                              </span>
+                              <DropdownList
+                                style={{ margin: "0 10px" }}
+                                value={departureLocation}
+                                onChange={(nextValue) =>
+                                  setDepartureLocation(nextValue)
+                                }
+                                className="dropdown_customized"
+                                data={DepartureLocations}
+                                id="drop"
+                                selected={null}
+                              />
+                            </div>
+                            <div style={{ width: 20 }} />
+                            <div
+                              style={{
+                                display: "block",
+                                flexDirection: "column",
+                                width: "50%",
+                              }}
+                            >
+                              <span
+                                style={{
+                                  color: "black",
+                                  fontSize: 13,
+                                  marginLeft: 10,
+                                }}
+                              >
+                                Ville De retour
+                              </span>
+                              <DropdownList
+                                style={{ margin: "0 10px" }}
+                                value={arrivalLocation}
+                                onChange={(nextValue) =>
+                                  setArrivalLocation(nextValue)
+                                }
+                                className="dropdown_customized"
+                                data={DepartureLocations}
+                                id="drop"
+                                selected={null}
+                              />
+                            </div>
+                          </div>
+                        </>
+                      ) : (
+                        <div
+                          style={{ display: "flex", flexDirection: "column" }}
+                        >
+                          <span
+                            style={{
+                              fontSize: 10,
+                              fontWeight: "bold",
+                              color: "black",
+                            }}
+                          >
+                            Adresse de Prise en Charge
+                          </span>
+                          {/* <div style={{height:40}}/> */}
+                          <input
+                            style={{ borderRadius: 5 }}
+                            placeholder="Adresse de Prise en Charge"
+                            id="ADD"
+                            value={adresse}
+                            onChange={(e) => SetADresse(e.target.value)}
+                          />
+                          <div style={{ height: 20 }} />
+                          <div
+                            style={{ display: "flex", flexDirection: "row" }}
+                          >
+                            <input
+                              placeholder="Code Postale"
+                              id="CP"
+                              style={{ width: "50%", borderRadius: 5 }}
+                              value={cp}
+                              onChange={(e) => setCp(e.target.value)}
+                            />
+                            <div style={{ width: 20 }} />
+                            <input
+                              placeholder="Ville"
+                              id="CITY"
+                              style={{ width: "50%", borderRadius: 5 }}
+                              value={city}
+                              onChange={(e) => setCity(e.target.value)}
+                            />
+                          </div>
+                        </div>
+                      )}
+                    </form>
                   </div>
                 </div>
               </div>
             </div>
-            <div
-              style={{ boxSizing: "border-box" }}
-              className="car-booking-form specialForm2"
-            >
-              <ContactInForm
-                franchise={RealFranchise}
-                isSpecialFranchise={checked3}
-                departureLocation={departureLocation}
-                arrivalLocation={arrivalLocation}
-                Price={Price}
-                NumberOfDays={NumberOfDays}
-                service={location.state.service}
-                carData={location.state.data}
-                startDate={formatDate(startDate)}
-                endDate={formatDate(endDate)}
-              />
-            </div>
-          </section>
+          </div>
+          <div
+            style={{ boxSizing: "border-box" }}
+            className="car-booking-form specialForm2"
+          >
+            <ContactInForm
+            ChauffLocationPrice={ChauffLocationPrice}
+              TimeSpent={TimeSpent}
+              arrivalMinute={arrivalMinute}
+              departureMinute={departureMinute}
+              arrivalHour={arrivalHour}
+              departurHour={departurHour}
+              specialWidth={40}
+              cp={cp}
+              city={city}
+              adresse={adresse}
+              franchise={RealFranchise}
+              isSpecialFranchise={checked3}
+              departureLocation={departureLocation}
+              arrivalLocation={arrivalLocation}
+              Price={Price}
+              NumberOfDays={NumberOfDays}
+              service={location.state.service}
+              carData={location.state.data}
+              startDate={formatDate(startDate)}
+              endDate={formatDate(endDate)}
+            />
+          </div>
+        </section>
 
-          <section id="r-car-brands">
-            <div className="clearfix text-center r-brand-items">
-              <div className="brand-item">
-                <img src={AM} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={AU} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={BT} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={BM} id="location-louer-MANSORY" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={FR} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={GO} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Jag} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={LB} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={MS} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Mas} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Merco} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Mini} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Nissan} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Porsche} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={Range} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={RR} id="location-louer-AUDI" alt=" car brand" />
-              </div>
-              <div className="brand-item">
-                <img src={MC} id="location-louer-AUDI" alt=" car brand" />
-              </div>
+        <section id="r-car-brands">
+          <div className="clearfix text-center r-brand-items">
+            <div className="brand-item">
+              <img src={AM} id="location-louer-AUDI" alt=" car brand" />
             </div>
-          </section>
-        </div>
-      <FooterFour/>
+            <div className="brand-item">
+              <img src={AU} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={BT} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={BM} id="location-louer-MANSORY" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={FR} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={GO} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Jag} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={LB} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={MS} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Mas} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Merco} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Mini} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Nissan} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Porsche} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={Range} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={RR} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+            <div className="brand-item">
+              <img src={MC} id="location-louer-AUDI" alt=" car brand" />
+            </div>
+          </div>
+        </section>
+      </div>
+      <FooterFour />
     </>
   );
 };

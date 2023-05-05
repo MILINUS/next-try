@@ -318,7 +318,7 @@ const FooterFour = () => {
               {/* Start Single Widget  */}
               <div style={{background:"#f5f8fa"}} className="col-lg-2 col-md-6 col-sm-6 col-12">
                 <div className="rn-footer-widget">
-                  <h4 style={{ width: 400 }} className="title">
+                  <h4 style={{ width: 400,color:"black" }} className="title">
                     Nos Meilleurs Vehicules
                   </h4>
                   <div className="inner">

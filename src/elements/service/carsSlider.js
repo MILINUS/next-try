@@ -9,7 +9,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
   console.log("DATA1", CarsInfo);
   console.log("DATA2",carData)
   return (
-    <div  style={{background:"#fff"}} className="row row--15 service-wrapper">
+    <div  style={{background:"transparent"}} className="row row--15 service-wrapper">
       {CarsInfo.filter((e)=>e?.id !==carData?.id).map((val, i) => (
         
         <Link
@@ -17,7 +17,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             pathname: `${process.env.PUBLIC_URL + "/gallery/" + val.title}`,
             state: { data: val },
           }}
-          style={{ cursor: "pointer",background:"#fff" }}
+          style={{ cursor: "pointer",background:"transparent" }}
           className="col-lg-4 col-md-6 col-sm-12 col-12"
           key={i}
         >

@@ -3,9 +3,7 @@ import emailjs from "emailjs-com";
 
 const Result = () => {
   return (
-    <p className="success-message">
-      Votre Message a été envoyé avec succés
-    </p>
+    <p className="success-message">Votre Message a été envoyé avec succés</p>
   );
 };
 
@@ -21,35 +19,57 @@ function ContactForm({
   arrivalLocation,
   departureLocation,
   franchise,
-  isSpecialFranchise
+  isSpecialFranchise,
+  adresse,
+  cp,
+  city,
+  specialWidth,
+  arrivalHour,
+  departurHour,
+  arrivalMinute,
+  departureMinute,
+  TimeSpent,
+  ChauffLocationPrice
 }) {
-    const [YesNo,setYesNo]=useState(null)
+  const [YesNo, setYesNo] = useState(null);
   const [error, setError] = useState(false);
-
-  const setYesNotoOuiNon=()=>{
-    if(isSpecialFranchise===true){
-        setYesNo("Oui")
-    }else{
-        setYesNo("Non")
+  const [phone, setPhone] = useState(null);
+  const [email,setEmail]=useState(null)
+  const [firstName,setFirstName]=useState(null)
+  const [lastName,setLastName]=useState(null)
+  const setYesNotoOuiNon = () => {
+    if (isSpecialFranchise === true) {
+      setYesNo("Oui");
+    } else {
+      setYesNo("Non");
     }
-  }
-  useEffect(()=>{
-    setYesNotoOuiNon()
-})
+  };
+  console.log("SpecialTime:",departurHour,departureMinute,arrivalHour,arrivalMinute)
+  useEffect(() => {
+    setYesNotoOuiNon();
+  });
   const checkifError = () => {
-    if (arrivalLocation === "" || departureLocation === "") {
+    if (
+      service === "location de voiture" &&
+      (arrivalLocation === "" || departureLocation === "")
+    ) {
       setError(true);
     } else {
-      setError(false);
+      if (
+        service === "location avec chauffeur" &&
+        (adresse === "" || cp === "" || city === "")
+      ) {
+        setError(true);
+      } else {
+        setError(false);
+      }
     }
   };
   console.log("is ther", error);
   const [clicked, setClicked] = useState(false);
   const [result, showresult] = useState(false);
   console.log("fuck", endDate);
-  useEffect(()=>{
-
-  },[endDate])
+  useEffect(() => {}, [endDate]);
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -87,8 +107,17 @@ function ContactForm({
         name="voitureSub"
         value={carData.subtitle}
       />
+      <input style={{ display: "none" }} name="StartHour" value={departurHour} />
+      <input style={{ display: "none" }} name="StartMinute" value={departureMinute} />
+      <input style={{ display: "none" }} name="EndHour" value={arrivalHour} />
+      <input style={{ display: "none" }} name="EndMinute" value={arrivalMinute} />
+      <input style={{ display: "none" }} name="TimeSpent" value={TimeSpent} />
       <input style={{ display: "none" }} name="startDate" value={startDate} />
       <input style={{ display: "none" }} name="endDate" value={endDate} />
+      <input style={{ display: "none" }} name="ChauffLocationPrice" value={ChauffLocationPrice} />
+      <input style={{ display: "none" }} name="adresse" value={adresse} />
+      <input style={{ display: "none" }} name="cp" value={cp} />
+      <input style={{ display: "none" }} name="city" value={city} />
       <input
         style={{ display: "none" }}
         name="NumberOfDays"
@@ -105,11 +134,7 @@ function ContactForm({
         name="arrivalLocation"
         value={arrivalLocation}
       />
-      <input
-        style={{ display: "none" }}
-        name="franchise"
-        value={franchise}
-      />
+      <input style={{ display: "none" }} name="franchise" value={franchise} />
       <input
         style={{ display: "none" }}
         name="isSpecialFranchise"
@@ -119,44 +144,106 @@ function ContactForm({
         className="form-group"
         style={{ display: "flex", flexDirection: "row" }}
       >
+        <div style={{display:"flex",flexDirection:"column"}}>
         <input
-          style={{ borderRadius: 5, height: 40,background:"#fff" }}
+          style={{
+            borderRadius: 5,
+            height: 40,
+            background: "#fff",
+            borderWidth: clicked && firstName === null ? 0.8 : 0,
+            borderColor: clicked && firstName === null ? "red" : null,
+          }}
           type="text"
-          name="fullname"
-          placeholder="Your Name"
+          name="firstName"
+          placeholder="PréNom"
           required
           onBlur={checkifError}
+          value={firstName}
+          onChange={(e)=>setFirstName(e.target.value)}
         />
-        <div style={{ width: 20 }} />
+          {clicked && email === null && (
+          <span style={{ color: "red", fontSize: 10 }}>
+            Ce Champs est obligatoire
+          </span>
+        )}
+        </div>
+        
+        <div style={{ width: specialWidth }} />
+        <div style={{display:"flex",flexDirection:"column"}}>
         <input
-          style={{ borderRadius: 5, height: 40,background:"#fff" }}
+           style={{
+            borderRadius: 5,
+            height: 40,
+            background: "#fff",
+            borderWidth: clicked && lastName === null ? 0.8 : 0,
+            borderColor: clicked && lastName === null ? "red" : null,
+          }}
           type="text"
           name="LastName"
-          placeholder="Your Name"
+          placeholder="Nom de Famille"
           required
+          value={lastName}
+          onChange={(e)=>setLastName(e.target.value)} 
         />
+          {clicked && email === null && (
+          <span style={{ color: "red", fontSize: 10 }}>
+            Ce Champs est obligatoire
+          </span>
+        )}
+        </div>
+        
       </div>
       <div className="form-group">
         <input
-          style={{ borderRadius: 5, height: 40,background:"#fff" }}
+           style={{
+            borderRadius: 5,
+            height: 40,
+            background: "#fff",
+            borderWidth: clicked && email === null ? 0.8 : 0,
+            borderColor: clicked && email === null ? "red" : null,
+          }}
           type="email"
           name="email"
-          placeholder="Email Address"
+          placeholder="Email"
           required
+          value={email}
+          onChange={(e)=>setEmail(e.target.value)}
         />
+        {clicked && email === null && (
+          <span style={{ color: "red", fontSize: 10 }}>
+            Ce Champs est obligatoire
+          </span>
+        )}
       </div>
 
       <div className="form-group">
         <input
-          style={{ borderRadius: 5, height: 40,background:"#fff" }}
+          style={{
+            borderRadius: 5,
+            height: 40,
+            background: "#fff",
+            borderWidth: clicked && phone === null ? 0.8 : 0,
+            borderColor: clicked && phone === null ? "red" : null,
+          }}
+          onChange={(e) => setPhone(e.target.phone)}
           type="text"
           name="phone"
           placeholder="Phone Number"
           required
         />
+        {clicked && phone === null && (
+          <span style={{ color: "red", fontSize: 10 }}>
+            Ce Champs est obligatoire
+          </span>
+        )}
       </div>
       <div className="form-group">
-        <textarea style={{background:"#fff"}} name="message" placeholder="Your Message" required></textarea>
+        <textarea
+          style={{ background: "#fff" }}
+          name="message"
+          placeholder="Your Message"
+          required
+        ></textarea>
       </div>
 
       <div
@@ -193,7 +280,14 @@ function ContactForm({
             </button>
           </>
         )}
-        {(arrivalLocation === "" || departureLocation === "") && clicked ? (
+        {adresse === "" && clicked && service === "location avec chauffeur" ? (
+          <span style={{ color: "red", fontSize: 11, alignSelf: "center" }}>
+            Veuillez Remplir le champs adresse
+          </span>
+        ) : null}
+        {(arrivalLocation === "" || departureLocation === "") &&
+        clicked &&
+        service === "location de voiture" ? (
           <span style={{ color: "red", fontSize: 11, alignSelf: "center" }}>
             Veuillez Remplir les champs ville de départ et de retour
           </span>

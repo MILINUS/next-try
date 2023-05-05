@@ -32,8 +32,8 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
     <div style={{backgroundColor:"#f5f8fa"}}>
       <header
         ref={ref}
-        
-        className={`rn-header header-default ${HeaderSTyle} ${headerClasses}`}
+        style={{backgroundColor:"#f5f8fa"}}
+        className={`rn-header header-default   ${HeaderSTyle} ${headerClasses}`}
       >
         <div style={{backgroundColor:"#f5f8fa"}} className="container position-relative">
           <div style={{backgroundColor:"#f5f8fa"}} className="row align-items-center row--0">
@@ -50,16 +50,16 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
                 </nav>
 
                 <div style={{backgroundColor:"#f5f8fa"}} className="mobile-menu-bar ml--5 d-block d-lg-none">
-                  <div  className="hamberger">
+                  <div className="hamberger">
                     <span
                       className="hamberger-button"
                       onClick={onCanvasHandler}
                     >
-                      <FiMenu />
+                      <FiMenu color="#d8d8d8"/>
                     </span>
                   </div>
                 </div>
-                <Darkmode2 />
+                {/* <Darkmode2 /> */}
               </div>
             </div>
           </div>

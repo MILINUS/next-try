@@ -17,7 +17,7 @@ const BlogList = ({ item, StyleVar,index,service }) => {
   console.log("This is the Service",service)
   return (
     <Link
-      style={{ cursor: "pointer", width: "80%" }}
+      style={{ cursor: "pointer", width: "80%",background:"#fff" }}
       to={{
         pathname: `${process.env.PUBLIC_URL + "/gallery/" + item.title}`,
         state: { data: item,service:service },
@@ -25,7 +25,7 @@ const BlogList = ({ item, StyleVar,index,service }) => {
       className={`rn-card ${StyleVar}`}
       
     >
-      <div style={{}} className="inner"  >
+      <div style={{background:"#f5f8fa"}} className="inner"  >
         <div className="thumbnail" >
           <img
             src={item.image[0].original}
@@ -34,8 +34,8 @@ const BlogList = ({ item, StyleVar,index,service }) => {
           />
         </div>
         <div className="content">
-          <h4  style={{ marginRight: 15 }}>{item.title} {item.subtitle}</h4>
-          <p style={{ fontSize: 14 }}>
+          <h4  style={{ marginRight: 15,color:"black" }}>{item.title} {item.subtitle}</h4>
+          <p style={{ fontSize: 14,color:"black" }}>
             disponible a partir de{" "}
             <span style={{ color: "#f6cc51" }}>{item.price}€</span> par jour
           </p>
