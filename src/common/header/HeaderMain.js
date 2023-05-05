@@ -33,14 +33,14 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
       <header
         ref={ref}
         style={{backgroundColor:"#f5f8fa"}}
-        className={`rn-header header-default   ${HeaderSTyle} ${headerClasses}`}
+        className={`rn-header header-default  ${HeaderSTyle} ${headerClasses}`}
       >
         <div style={{backgroundColor:"#f5f8fa"}} className="container position-relative">
           <div style={{backgroundColor:"#f5f8fa"}} className="row align-items-center row--0">
             <div style={{backgroundColor:"#f5f8fa"}} className="col-lg-3 col-md-6 col-4">
               <Logo
-               image={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
-                image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
+               image={"https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Logo%2Flogo1.png?alt=media&token=900c69b4-2000-4a51-8db7-76a40886772a"}
+                image2={"https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Logo%2Flogo1.png?alt=media&token=900c69b4-2000-4a51-8db7-76a40886772a"}
               />
             </div>
             <div style={{backgroundColor:"#f5f8fa"}} className="col-lg-9 col-md-6 col-8 position-static">
