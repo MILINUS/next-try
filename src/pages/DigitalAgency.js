@@ -342,7 +342,7 @@ const DigitalAgency = () => {
       <SEO title="Digital Agency" />
       <main className="page-wrapper main_layout" >
         <HeaderMain btnStyle="btn-small" />
-        <div className="r-header r-header-inner r-header-strip-01 ">
+        <div style={{background:"#fff"}} className="r-header r-header-inner r-header-strip-01 ">
           {/* Start Slider Area  */}
           <Slider
             className="slider-area slider-style-4 slider-dot rn-slick-dot rn-slick-arrow"
@@ -638,7 +638,7 @@ const DigitalAgency = () => {
         </div>
         {/* Start Service Area  */}
         <div className="media_separator" style={{ marginTop: "20%" }} />
-        <div className="search_media special-search-media">
+        <div style={{background:"#fff"}} className="search_media special-search-media">
           <div className="rn-service-area rn-section-gap ">
             <div className="container ">
               <div className="row">
@@ -665,7 +665,7 @@ const DigitalAgency = () => {
         {/* <Separator /> */}
 
         {/* <Separator /> */}
-        <div className="blog-area rn-section-gap">
+        <div style={{background:"#fff"}} className="blog-area rn-section-gap">
           <div className="container">
             <div className="row">
               <div className="col-lg-12">

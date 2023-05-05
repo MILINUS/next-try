@@ -9,7 +9,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
   console.log("DATA1", CarsInfo);
   console.log("DATA2",carData)
   return (
-    <div  className="row row--15 service-wrapper">
+    <div  style={{background:"#fff"}} className="row row--15 service-wrapper">
       {CarsInfo.filter((e)=>e?.id !==carData?.id).map((val, i) => (
         
         <Link
@@ -26,7 +26,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             animateOut="fadeInOut"
             animateOnce={true}
           >
-            <div style={{background:"#fff"}} className={`service ${serviceStyle} ${textAlign}`}>
+            <div style={{background:"#65676b"}} className={`service ${serviceStyle} ${textAlign}`}>
               <div className="inner">
                 <div className="content">
                   <h4 className="title">
