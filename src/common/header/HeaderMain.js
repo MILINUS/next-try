@@ -14,7 +14,7 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
   const ref = useRef();
   let [check, setCheck] = useState(true);
   const sticky = useStickyHeader(50);
-  const headerClasses = `header-default ${sticky && check ? "sticky" : ""}`;
+  const headerClasses = `header-default ${sticky && check ? "sticky" : "sticky"}`;
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;
