@@ -9,7 +9,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
   console.log("DATA1", CarsInfo);
   console.log("DATA2",carData)
   return (
-    <div className="row row--15 service-wrapper">
+    <div  className="row row--15 service-wrapper">
       {CarsInfo.filter((e)=>e?.id !==carData?.id).map((val, i) => (
         
         <Link
@@ -17,7 +17,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             pathname: `${process.env.PUBLIC_URL + "/gallery/" + val.title}`,
             state: { data: val },
           }}
-          style={{ cursor: "pointer" }}
+          style={{ cursor: "pointer",background:"#65676b" }}
           className="col-lg-4 col-md-6 col-sm-12 col-12"
           key={i}
         >
@@ -26,7 +26,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             animateOut="fadeInOut"
             animateOnce={true}
           >
-            <div className={`service ${serviceStyle} ${textAlign}`}>
+            <div style={{background:"#fff"}} className={`service ${serviceStyle} ${textAlign}`}>
               <div className="inner">
                 <div className="content">
                   <h4 className="title">
