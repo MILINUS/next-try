@@ -9,21 +9,21 @@ const SectionTitle = ({subtitle, title, description, textAlign, radiusRounded}) 
             animateIn="fadeInUp"
             animateOut="fadeInOut"
             animateOnce={true}>
-                <h4 className={`subtitle ${radiusRounded}`}><span className="theme-gradient" dangerouslySetInnerHTML={{__html: subtitle}}></span></h4>
+                <h4  style={{color:"black"}} className={`subtitle ${radiusRounded}`}><span className="theme-gradient" dangerouslySetInnerHTML={{__html: subtitle}}></span></h4>
             </AnimationOnScroll>
             
             <AnimationOnScroll 
             animateIn="fadeInUp"
             animateOut="fadeInOut"
             animateOnce={true}>
-                <h2 className="title w-600 mb--20" dangerouslySetInnerHTML={{__html: title}}></h2>
+                <h2  style={{color:"black"}} className="title w-600 mb--20" dangerouslySetInnerHTML={{__html: title}}></h2>
             </AnimationOnScroll>
 
             <AnimationOnScroll 
             animateIn="fadeInUp"
             animateOut="fadeInOut"
             animateOnce={true}>
-                <p className="description b1" dangerouslySetInnerHTML={{__html: description}}></p>
+                <p  style={{color:"black"}} className="description b1" dangerouslySetInnerHTML={{__html: description}}></p>
             </AnimationOnScroll>
         </div>
     )

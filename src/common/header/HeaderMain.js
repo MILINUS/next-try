@@ -29,10 +29,10 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
     };
   }, [scrollPosition]);
   return (
-    <>
+    <div style={{background:"#f5f8fa"}}>
       <header
         ref={ref}
-        style={{background:"#f5f8fa"}}
+        
         className={`rn-header header-default ${HeaderSTyle} ${headerClasses}`}
       >
         <div style={{background:"#f5f8fa"}} className="container position-relative">
@@ -66,7 +66,7 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
         </div>
       </header>
       <MobileMenu show={ofcanvasShow} onClose={onCanvasHandler} />
-    </>
+    </div>
   );
 };
 export default HeaderMain;

@@ -29,10 +29,10 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             <div style={{background:"#f5f8fa"}} className={`service ${serviceStyle} ${textAlign}`}>
               <div className="inner">
                 <div className="content">
-                  <h4 className="title">
+                  <h4 style={{color:"black"}} className="title">
                     {val.title} {val.subtitle}
                   </h4>
-                  <h6>
+                  <h6  style={{color:"black"}}>
                     A partir de{" "}
                     <span style={{ color: "orange" }}>{val.price}€</span> par
                     jour
