@@ -19,8 +19,8 @@
     "@material-ui/core": "^4.12.4",
     "@mui/lab": "^5.0.0-alpha.120",
     "@mui/material": "^5.11.10",
-    "@mui/x-date-pickers": "^5.0.19",
     "@mui/system": "^5.8.0",
+    "@mui/x-date-pickers": "^5.0.19",
     "@testing-library/jest-dom": "^5.12.0",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
@@ -61,14 +61,14 @@
     "react-widget": "^2.6.4",
     "react-widgets": "^5.8.4",
     "sass": "^1.49.10",
+    "serve": "^14.2.0",
     "slick-carousel": "^1.8.1",
     "web-vitals": "^1.1.2"
   },
   "scripts": {
-    "start": "react-scripts --max_old_space_size=8096 start",
-    "build": "react-scripts --max_old_space_size=8096 build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "serve -s --max_old_space_size=8096 build",
+    "dev": "react-scripts start",
+    "build": "react-scripts build"
   },
   "eslintConfig": {
     "extends": [

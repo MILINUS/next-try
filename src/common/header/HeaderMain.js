@@ -38,6 +38,7 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
           <div className="row align-items-center row--0">
             <div className="col-lg-3 col-md-6 col-4">
               <Logo
+               image={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
                 image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
               />
             </div>
