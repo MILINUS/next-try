@@ -311,12 +311,12 @@ const CarsInfo = [
 const FooterFour = () => {
   return (
     <>
-      <footer className="rn-footer footer-style-default no-border">
-        <div className="footer-top">
-          <div className="container">
+      <footer style={{background:"#f5f8fa"}} className="rn-footer footer-style-default no-border">
+        <div style={{background:"#f5f8fa"}} className="footer-top">
+          <div style={{background:"#f5f8fa"}} className="container">
             <div className="row">
               {/* Start Single Widget  */}
-              <div className="col-lg-2 col-md-6 col-sm-6 col-12">
+              <div style={{background:"#f5f8fa"}} className="col-lg-2 col-md-6 col-sm-6 col-12">
                 <div className="rn-footer-widget">
                   <h4 style={{ width: 400 }} className="title">
                     Nos Meilleurs Vehicules
@@ -347,7 +347,7 @@ const FooterFour = () => {
             </div>
           </div>
         </div>
-        <div className="copyright-area copyright-style-one no-border">
+        <div style={{background:"#f5f8fa"}} className="copyright-area copyright-style-one no-border">
           <div className="container">
             <div className="row align-items-center">
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">

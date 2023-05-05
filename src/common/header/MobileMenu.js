@@ -5,14 +5,14 @@ import { FiX } from "react-icons/fi";
 
 const MobileMenu = ({show, onClose}) => {
     return (
-        <div className={`popup-mobile-menu ${show ? "active": ""}`}>
-            <div className="inner">
-                <div className="header-top">
+        <div style={{backgroud:"#fff"}} className={`popup-mobile-menu ${show ? "active": ""}`}>
+            <div style={{backgroud:"#fff"}} className="inner">
+                <div style={{backgroud:"#fff"}}  className="header-top">
                     <Logo 
                         image={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
                         image2={`${process.env.PUBLIC_URL}/images/logo/LOGO_SCL.jpg`}
                     />
-                    <div className="close-menu">
+                    <div style={{backgroud:"#fff"}} className="close-menu">
                         <span className="close-button" onClick={onClose}><FiX /></span>
                     </div>
                 </div>

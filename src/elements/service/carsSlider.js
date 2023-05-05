@@ -17,7 +17,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             pathname: `${process.env.PUBLIC_URL + "/gallery/" + val.title}`,
             state: { data: val },
           }}
-          style={{ cursor: "pointer",background:"#65676b" }}
+          style={{ cursor: "pointer",background:"#fff" }}
           className="col-lg-4 col-md-6 col-sm-12 col-12"
           key={i}
         >
@@ -26,7 +26,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
             animateOut="fadeInOut"
             animateOnce={true}
           >
-            <div style={{background:"#65676b"}} className={`service ${serviceStyle} ${textAlign}`}>
+            <div style={{background:"#f5f8fa"}} className={`service ${serviceStyle} ${textAlign}`}>
               <div className="inner">
                 <div className="content">
                   <h4 className="title">
