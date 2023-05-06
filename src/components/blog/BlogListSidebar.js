@@ -13,7 +13,7 @@ import SidebarArchive from './sidebar/SidebarArchive';
 const BlogListSidebar = () => {
     return (
         <>
-            <SEO title="Blog List Sidebar || CARS RENTAL PARIS - React Business  Template" />
+            <SEO title="Blog List Sidebar || SPORT CARS & LUXURY - React Business  Template" />
             <Layout>
                 <BreadcrumbOne 
                     title="The Easiest Way To Create Website <br /> Quick Copy & Make site."

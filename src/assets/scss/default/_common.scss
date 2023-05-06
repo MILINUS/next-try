@@ -4,12 +4,12 @@
 
 /* Theme Gradient */
 .theme-gradient {
-    background: -moz-linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
-    background: -webkit-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
-    background: -webkit-linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
-    background: -o-linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
-    background: -ms-linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
-    background: linear-gradient(95deg, var(--color-primary) 15%, var(--color-tertiary) 45%, var(--color-pink) 75%, var(--color-secondary) 100%) 98% / 200% 100%;
+    background: #f6cc51;
+    background: #f6cc51;
+    background: #f6cc51;
+    background: #f6cc51;
+    background: #f6cc51;
+    background: #f6cc51;
     text-transform: capitalize;
     -webkit-background-clip: text;
     background-clip: text;
@@ -22,7 +22,8 @@
     background-image: linear-gradient(90deg, var(--color-primary-lightest) 10%, var(--color-primary-alt) 50%, var(--color-tertiary-alt) 90%);
 }
 
-@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+@media all and (-ms-high-contrast: none),
+(-ms-high-contrast: active) {
     .theme-gradient {
         color: var(--color-secondary);
         background: none !important;
@@ -384,13 +385,16 @@
     list-style: none;
     padding: 0;
     margin: 0;
+
     li {
         display: flex;
         align-items: center;
         margin: 15px 0;
+
         @media #{$sm-layout} {
             font-size: 16px;
         }
+
         .icon {
             width: 30px;
             background-color: var(--color-blackest);
@@ -401,6 +405,7 @@
             margin-right: 9px;
             min-width: 30px;
             min-height: 30px;
+
             svg {
                 width: 20px;
                 height: 20px;
@@ -425,6 +430,3 @@
     background-color: var(--color-blackest);
     box-shadow: var(--shadow-lighter);
 }
-
-
-

@@ -397,7 +397,7 @@ const Elements = ({ props }) => {
   const [endDate, setEndDate] = useState(new Date());
   return (
     <>
-      <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
+      <SEO title="Gallery || SPORT CARS & LUXURY" />
       <main>
         <HeaderMain />
         <section className={styles.car_section}>

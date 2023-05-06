@@ -7,7 +7,7 @@ import BlogPropTwo from './itemProp/BlogPropTwo';
 const BlogListView = () => {
     return (
         <>
-            <SEO title="Blog List View || CARS RENTAL PARIS - React Business  Template" />
+            <SEO title="Blog List View ||  SPORT CARS & LUXURY - React Business  Template" />
             <Layout>
                 <BreadcrumbOne 
                     title="The Easiest Way To Create Website <br /> Quick Copy & Make site."

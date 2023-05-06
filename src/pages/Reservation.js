@@ -180,7 +180,7 @@ const Reservation = ({ props }) => {
   const ChauffLocationPrice = HourlyRate * TimeSpent;
   return (
     <>
-      <SEO title="Gallery || CARS RENTAL PARIS - React Business  Template" />
+      <SEO title="Gallery ||  SPORT CARS & LUXURY - React Business  Template" />
       <HeaderMain />
       <div style={{ background: "#ececec" }}>
         <section

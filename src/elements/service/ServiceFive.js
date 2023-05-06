@@ -9,7 +9,7 @@ const ServiceList = [
     image: `${FirebaseStorage1}BENTLEY_GTC%2F2.jpg${FirebaseStorage2}`,
     title: "LOCATION DE VOITURES LUXUEUSES",
     description:
-      "Cars Rental Paris vous propose une gamme très large de supercars, cabriolets et SUV de prestige à louer.",
+      " SPORT CARS & LUXURY vous propose une gamme très large de supercars, cabriolets et SUV de prestige à louer.",
     service: "location de voiture",
     Link: "/Location-Voiture",
   },
@@ -18,15 +18,15 @@ const ServiceList = [
     title: "LOCATION AVEC CHAUFFEUR",
     service: "location avec chauffeur",
     description:
-      "Cars Rental Paris propose une large gamme de services de limousine avec chauffeur pour répondre à vos besoins.",
+      " SPORT CARS & LUXURY propose une large gamme de services de limousine avec chauffeur pour répondre à vos besoins.",
     Link: "/Location-Voiture",
   },
   {
-    image: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
+    image: `${FirebaseStorage1}MERCEDES_V%2F1.jpg${FirebaseStorage2}`,
     title: "TRANSFERT AVEC CHAUFFEUR",
     service: "transfert avec chauffeur",
     description:
-      "Cars Rental Paris offre un service de transfert de qualité avec des limousines et des mini-fourgonnettes.",
+      " SPORT CARS & LUXURY offre un service de transfert de qualité avec des limousines et des mini-fourgonnettes.",
     Link: "/Location-Voiture",
   },
 ];

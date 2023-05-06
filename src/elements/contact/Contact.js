@@ -8,7 +8,7 @@ import ContactOne from "./ContactOne";
 const Contact = () => {
     return (
         <>
-            <SEO title="Contact || CARS RENTAL PARIS - React Business  Template" />
+            <SEO title="Contact ||  SPORT CARS & LUXURY - React Business  Template" />
             <Layout>
                 
                 <div className="main-content">

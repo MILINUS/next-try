@@ -529,7 +529,7 @@ const LocationVoiture = () => {
         "location avec chauffeur",
         "transfert avec chauffeur",
       ],
-      type: "Limousine",
+      type: "Berlines De Luxe",
       brand: "Mercedes",
     },
     {
@@ -764,8 +764,32 @@ const LocationVoiture = () => {
       speed: "194km/h",
       image: [
         {
-          original: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
-          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F1.jpeg${FirebaseStorage2}`,
+          original: `${FirebaseStorage1}MERCEDES_V%2F1.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F1.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F2.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F2.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F7.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F7.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F3.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F3.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F4.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F4.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F5.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F5.jpg${FirebaseStorage2}`,
+        },
+        {
+          original: `${FirebaseStorage1}MERCEDES_V%2F6.jpg${FirebaseStorage2}`,
+          thumbnail: `${FirebaseStorage1}MERCEDES_V%2F6.jpg${FirebaseStorage2}`,
         },
       ],
       categorie_location: [
@@ -916,7 +940,7 @@ const LocationVoiture = () => {
                     Cabriolet
                   </p>
                 </div>
-                <div
+                {/* <div
                   onClick={() => setCartype("Edition Limitée")}
                   className="car-category-image "
                 >
@@ -934,7 +958,7 @@ const LocationVoiture = () => {
                   >
                     Edition Limitée
                   </p>
-                </div>
+                </div> */}
                 <div
                   onClick={() => setCartype("Berlines De Luxe")}
                   className="car-category-image "
@@ -1009,7 +1033,7 @@ const LocationVoiture = () => {
                     Minivans De Luxe
                   </p>
                 </div>
-                <div
+                {/* <div
                   onClick={() => setCartype("Limousine")}
                   className="car-category-image "
                 >
@@ -1025,7 +1049,7 @@ const LocationVoiture = () => {
                   >
                     Limousine
                   </p>
-                </div>
+                </div> */}
               </div>
             </div>
           </section>

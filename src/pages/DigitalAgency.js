@@ -429,7 +429,7 @@ const DigitalAgency = () => {
                           placeholder="Type de vehicule"
                           data={[
                             "Cabriolet",
-                            "Edition Limitée",
+                            // "Edition Limitée",
                             "Berlines De Luxe",
                             "Voitures-Sportives",
                             "SUV",
@@ -505,7 +505,7 @@ const DigitalAgency = () => {
               </div> */}
             <div className="Details_container categoriesContainer clearfix ">
               <div className="car-categories-image-wrapper">
-              <Link
+              {/* <Link
                 to={{
                   pathname: "/Location-Voiture",
                   state: {
@@ -522,7 +522,7 @@ const DigitalAgency = () => {
                     id="Cabriolet"
                   />
                   <p className="text-center">Edition Limitée</p>
-                </Link>
+                </Link> */}
                 <Link
                   onClick={() => setCarType("Cabriolet")}
                   className="car-category-image "
@@ -614,7 +614,7 @@ const DigitalAgency = () => {
                   />
                   <p className="text-center">Minivans De Luxe</p>
                 </Link>
-                <Link
+                {/* <Link
                 to={{
                   pathname: "/Location-Voiture",
                   state: {
@@ -631,7 +631,7 @@ const DigitalAgency = () => {
                     id="Cabriolet"
                   />
                   <p className="text-center">Limousine</p>
-                </Link>
+                </Link> */}
               </div>
             </div>
           </section>

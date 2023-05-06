@@ -8,10 +8,10 @@ import BlogProp from './itemProp/BlogProp';
 const BlogGridView = () => {
     return (
         <>
-            <SEO title="Blog List || CARS RENTAL PARIS - React Business  Template" />
+            <SEO title="Blog List || SPORT CARS & LUXURY" />
             <Layout>
                 <BreadcrumbOne 
-                    title="The Easiest Way To Create Website <br /> Quick Copy & Make site."
+                    // title="The Easiest Way To Create Website <br /> Quick Copy & Make site."
                     rootUrl="/"
                     parentUrl="Home"
                     currentUrl="Blog List"

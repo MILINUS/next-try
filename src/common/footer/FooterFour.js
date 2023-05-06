@@ -354,7 +354,7 @@ const FooterFour = () => {
                 <div className="copyright-left">
                   <ul className="ft-menu link-hover">
                     <p className="copyright-text">
-                      © CARS RENTAL PARIS {new Date().getFullYear()}
+                      © Sport Cars & LUXURY {new Date().getFullYear()}
                     </p>
                   </ul>
                 </div>

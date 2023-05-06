@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { DiscussionEmbed } from 'disqus-react';
 
 const Comment = ({url, id, title}) => {
-    const disqusShortname = 'CARS RENTAL PARIS';
+    const disqusShortname = ' SPORT CARS & LUXURY';
     const disqusConfig = {
         url: url,
         identifier: `${id}`,
