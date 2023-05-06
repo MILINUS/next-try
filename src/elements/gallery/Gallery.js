@@ -257,7 +257,7 @@ const Elements = ({ props }) => {
                               pathname: `${
                                 process.env.PUBLIC_URL +
                                 "/Reservation/" +
-                                CarData?.title
+                                CarData?.path
                               }`,
                               state: {
                                 data: CarData,

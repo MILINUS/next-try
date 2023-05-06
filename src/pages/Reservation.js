@@ -44,6 +44,8 @@ const Reservation = ({ props }) => {
       thumbnail: "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c"
     },
   ]
+  const pathname = window.location.pathname;
+  console.log("TFG",pathname)
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
   const [endDate, setEndDate] = useState(new Date(location?.state?.endDate));
   const NumberOfDays =
@@ -64,10 +66,10 @@ const Reservation = ({ props }) => {
     ].join("-");
   }
   useEffect(()=>{
-    console.log('location',location?.state?.data)
+    console.log('location',pathname.split('/')[2])
     if(location?.state?.data===undefined){
 console.log("redirect")
-    history.push('/')
+    history.push('/gallery/'+pathname.split('/')[2])
     }
   },[])
   const [TimeValue, setTimeValue] = useState("10:00");
