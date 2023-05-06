@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import SEO from "../common/SEO";
-import Layout from "../common/Layout";
 import ImageGallery from "react-image-gallery";
 import styles from "../elements/gallery/Gallery.module.scss";
 import "../elements/gallery/Gallery.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
 import { DatePicker } from "react-widgets/cjs";
-import { useLocation } from "react-router-dom";
+import { Redirect, useLocation,useHistory } from "react-router-dom";
 import { DropdownList } from "react-widgets";
 import Checkbox from "@mui/material/Checkbox";
 import dayjs from "dayjs";
@@ -33,13 +32,20 @@ import HeaderMain from "../common/header/HeaderMain";
 import FooterFour from "../common/footer/FooterFour";
 const Reservation = ({ props }) => {
   const location = useLocation();
-  const CarData = location.state.data;
-  console.log("this is cars Data", CarData.image[0].original);
+  const CarData = location?.state?.data;
+  // console.log("this is cars Data", CarData?.image[0].original);
   const [startDate, setStarteDate] = useState(
-    new Date(location.state.startDate)
+    new Date(location?.state?.startDate)
   );
+  const history=useHistory()
+  const backUp=[
+    {
+      original: "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c",
+      thumbnail: "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c"
+    },
+  ]
   const label = { inputProps: { "aria-label": "Checkbox demo" } };
-  const [endDate, setEndDate] = useState(new Date(location.state.endDate));
+  const [endDate, setEndDate] = useState(new Date(location?.state?.endDate));
   const NumberOfDays =
     (endDate.getTime() - startDate.getTime()) / (1000 * 3600 * 24) + 1;
   function padTo2Digits(num) {
@@ -57,6 +63,13 @@ const Reservation = ({ props }) => {
       padTo2Digits(convertToDate.getDate()),
     ].join("-");
   }
+  useEffect(()=>{
+    console.log('location',location?.state?.data)
+    if(location?.state?.data===undefined){
+console.log("redirect")
+    history.push('/')
+    }
+  },[])
   const [TimeValue, setTimeValue] = useState("10:00");
   const [TimeValue2, setTimeValue2] = useState("14:00");
   const [cp, setCp] = useState("");
@@ -65,7 +78,7 @@ const Reservation = ({ props }) => {
     setTimeValue(time);
     getDeparturHour(TimeValue);
   };
-  console.log("DataToSend", location.state.service);
+  console.log("DataToSend", location?.state?.service);
   const onChange2 = (time) => {
     setTimeValue2(time);
     getArrivalMinute(TimeValue2);
@@ -121,8 +134,8 @@ const Reservation = ({ props }) => {
   const [arrivalHour, setArrivalHour] = useState(14);
   const [arrivalMinute, setArrivalMinute] = useState("00");
   const Price = checked3
-    ? CarData.price * NumberOfDays + CarData.AssReduc * NumberOfDays
-    : CarData.price * NumberOfDays;
+    ? CarData?.price * NumberOfDays + CarData?.AssReduc * NumberOfDays
+    : CarData?.price * NumberOfDays;
   const getDeparturHour = (value) => {
     const departureMinute = (new Date(value.$d).getMinutes() / 60).toFixed(2);
     if (departureMinute > 0.5) {
@@ -149,15 +162,15 @@ const Reservation = ({ props }) => {
   };
  
   const RealFranchise = checked3
-    ? CarData.reductedFranchise
-    : CarData.franchise;
+    ? CarData?.reductedFranchise
+    : CarData?.franchise;
   // const NumberOfHours=
   console.log(
     "Number OF Hours",
     TimeValue?.$d ? new Date(TimeValue.$d).getMinutes() : ""
   );
   console.log("FromDate", formatDate(startDate));
-  // const price = CarData.
+  // const price = CarData?.
   const TimeSpent =
     (arrivalHour + arrivalMinute / 60 - (departurHour + departureMinute / 60)) *
     NumberOfDays;
@@ -191,18 +204,18 @@ const Reservation = ({ props }) => {
             <div style={{ boxSizing: "border-box" }}>
               <div className="r-sec-head r-sec-left-head title_container">
                 <h2>
-                  <b>{CarData.title}</b>
+                  <b>{CarData?.title}</b>
                 </h2>
                 <span>
                   <div className="horizontal-yellow-line"></div>
-                  {CarData.subtitle}
+                  {CarData?.subtitle}
                 </span>
               </div>
               <div className="row_s_resa">
                 <div className="cols-sm-170 cols-sm-12 cols-md-7">
-                  {/* <ImageGallery items={CarData.image} /> */}
+                  {/* <ImageGallery items={CarData?.image} /> */}
 
-                  <ImageGallery items={CarData.image} />
+                  <ImageGallery items={CarData?.image?CarData?.image:backUp} />
 
                   <table className="booking-bill">
                     <tbody>
@@ -223,8 +236,8 @@ const Reservation = ({ props }) => {
                             color: "black",
                           }}
                         >
-                          {location.state.service
-                            ? location.state.service
+                          {location?.state?.service
+                            ? location?.state?.service
                             : "location de voiture"}
                         </td>
                       </tr>
@@ -290,7 +303,7 @@ const Reservation = ({ props }) => {
                           {NumberOfDays >= 0 ? NumberOfDays : 0}
                         </td>
                       </tr>
-                      {location.state.service === "location de voiture" ? (
+                      {location?.state?.service === "location de voiture" ? (
                         <>
                           <tr style={{ borderBottom: "1.3px solid grey" }}>
                             <td
@@ -315,7 +328,7 @@ const Reservation = ({ props }) => {
                           </tr>
                         </>
                       ) : null}
-                      {location.state.service === "location avec chauffeur" ? (
+                      {location?.state?.service === "location avec chauffeur" ? (
                         <tr style={{ borderBottom: "1.3px solid grey" }}>
                           <td
                             style={{
@@ -339,7 +352,7 @@ const Reservation = ({ props }) => {
                         </tr>
                       ) : null}
 
-                      {location.state.service === "location de voiture" ? (
+                      {location?.state?.service === "location de voiture" ? (
                         <tr style={{ borderBottom: "1.3px solid grey" }}>
                           <td
                             style={{
@@ -359,8 +372,8 @@ const Reservation = ({ props }) => {
                           >
                             <span>
                               {checked3
-                                ? CarData.reductedFranchise
-                                : CarData.franchise}
+                                ? CarData?.reductedFranchise
+                                : CarData?.franchise}
                               €
                             </span>
                           </td>
@@ -377,7 +390,7 @@ const Reservation = ({ props }) => {
                         >
                           Montant total
                         </td>
-                        {location.state.service === "location de voiture" ? (
+                        {location?.state?.service === "location de voiture" ? (
                           <td
                             style={{
                               fontWeight: 600,
@@ -411,8 +424,7 @@ const Reservation = ({ props }) => {
                   <div
                     style={{ boxSizing: "border-box", width: "175%" }}
                     className="specailForm"
-                  >
-                    <ContactInForm
+                  >{location?.state?.data? <ContactInForm
                     ChauffLocationPrice={ChauffLocationPrice}
                       TimeSpent={TimeSpent}
                       arrivalHour={arrivalHour}
@@ -427,11 +439,31 @@ const Reservation = ({ props }) => {
                       arrivalLocation={arrivalLocation}
                       Price={Price}
                       NumberOfDays={NumberOfDays}
-                      service={location.state.service}
-                      carData={location.state.data}
+                      service={location?.state?.service}
+                      carData={location?.state?.data}
                       startDate={formatDate(startDate)}
                       endDate={formatDate(endDate)}
-                    />
+                    />:null}
+                    {/* <ContactInForm
+                    ChauffLocationPrice={ChauffLocationPrice}
+                      TimeSpent={TimeSpent}
+                      arrivalHour={arrivalHour}
+                      departurHour={departurHour}
+                      specialWidth={65}
+                      cp={cp}
+                      city={city}
+                      adresse={adresse}
+                      franchise={RealFranchise}
+                      isSpecialFranchise={checked3}
+                      departureLocation={departureLocation}
+                      arrivalLocation={arrivalLocation}
+                      Price={Price}
+                      NumberOfDays={NumberOfDays}
+                      service={location?.state?.service}
+                      carData={location?.state?.data}
+                      startDate={formatDate(startDate)}
+                      endDate={formatDate(endDate)}
+                    /> */}
                   </div>
                 </div>
                 <div className="  cols-xs-12 cols-sm-12 cols-md-5">
@@ -473,7 +505,7 @@ const Reservation = ({ props }) => {
                       </div>
                     </form>
                     <form className={styles.car_info_section} action="#">
-                      {location.state.service === "location de voiture" ? (
+                      {location?.state?.service === "location de voiture" ? (
                         <>
                           <h6 style={{ color: "black" }} htmlFor="fromDate">
                             Services additionnels
@@ -537,8 +569,8 @@ const Reservation = ({ props }) => {
                                 />
                                 <label style={{ marginTop: 5 }}>
                                   Assurence pour réduire la Franchise a{" "}
-                                  {CarData.reductedFranchise}€ (
-                                  {CarData.AssReduc}€ par Jour )
+                                  {CarData?.reductedFranchise}€ (
+                                  {CarData?.AssReduc}€ par Jour )
                                 </label>
                               </div>
                             </div>
@@ -642,7 +674,7 @@ const Reservation = ({ props }) => {
                         PRISE EN CHARGE & DESTINATION
                       </h6>
                       <div className={styles.big_separator} />
-                      {location.state.service === "location de voiture" ? (
+                      {location?.state?.service === "location de voiture" ? (
                         <>
                           {" "}
                           <div
@@ -764,8 +796,7 @@ const Reservation = ({ props }) => {
           <div
             style={{ boxSizing: "border-box" }}
             className="car-booking-form specialForm2"
-          >
-            <ContactInForm
+          >{location?.state?.data? <ContactInForm
             ChauffLocationPrice={ChauffLocationPrice}
               TimeSpent={TimeSpent}
               arrivalMinute={arrivalMinute}
@@ -782,11 +813,33 @@ const Reservation = ({ props }) => {
               arrivalLocation={arrivalLocation}
               Price={Price}
               NumberOfDays={NumberOfDays}
-              service={location.state.service}
-              carData={location.state.data}
+              service={location?.state?.service}
+              carData={location?.state?.data}
               startDate={formatDate(startDate)}
               endDate={formatDate(endDate)}
-            />
+            />:null}
+            {/* <ContactInForm
+            ChauffLocationPrice={ChauffLocationPrice}
+              TimeSpent={TimeSpent}
+              arrivalMinute={arrivalMinute}
+              departureMinute={departureMinute}
+              arrivalHour={arrivalHour}
+              departurHour={departurHour}
+              specialWidth={40}
+              cp={cp}
+              city={city}
+              adresse={adresse}
+              franchise={RealFranchise}
+              isSpecialFranchise={checked3}
+              departureLocation={departureLocation}
+              arrivalLocation={arrivalLocation}
+              Price={Price}
+              NumberOfDays={NumberOfDays}
+              service={location?.state?.service}
+              carData={location?.state?.data}
+              startDate={formatDate(startDate)}
+              endDate={formatDate(endDate)}
+            /> */}
           </div>
         </section>
 

@@ -8,13 +8,15 @@ import fuel from "./fuel.svg";
 const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
   console.log("DATA1", CarsInfo);
   console.log("DATA2",carData)
+  const pathname = window.location.pathname;
+  console.log("Route",pathname)
   return (
     <div  style={{background:"transparent"}} className="row row--15 service-wrapper">
       {CarsInfo.filter((e)=>e?.id !==carData?.id).map((val, i) => (
         
         <Link
           to={{
-            pathname: `${process.env.PUBLIC_URL + "/gallery/" + val.title}`,
+            pathname: `${process.env.PUBLIC_URL + "/gallery/" + val.path }`,
             state: { data: val },
           }}
           style={{ cursor: "pointer",background:"transparent" }}

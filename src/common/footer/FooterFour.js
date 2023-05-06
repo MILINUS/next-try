@@ -1,6 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import ScrollTop from "./ScrollTop";
+import { FirestoreDb } from "../../Firebase";
+import { collection, getDocs,query,where } from "firebase/firestore";
+
 const FirebaseStorage1 = `https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/`;
 const FirebaseStorage2 =
   "?alt=media&token=73f41327-4bc0-4da9-a2ea-7e452085d11b";
@@ -309,6 +312,23 @@ const CarsInfo = [
 // const indexThreeLink = (footerIntemThree.quicklink);
 
 const FooterFour = () => {
+  const [carList, setCarList] = useState([]);
+  const [dataChange, setDataChange] = useState(false);
+  const addTocities = async () => {
+    const carsRef=collection(FirestoreDb, " Cars")
+    const q= query(carsRef,where("id","<",6))
+    await getDocs(q).then((querySnapshot) => {
+      const newData = querySnapshot.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+      setCarList(newData);
+      setDataChange(true);
+    });
+  };
+  useEffect(() => {
+    addTocities();
+  }, [dataChange]);
   return (
     <>
       <footer style={{background:"#f5f8fa"}} className="rn-footer footer-style-default no-border">
@@ -323,7 +343,7 @@ const FooterFour = () => {
                   </h4>
                   <div className="inner">
                     <ul className="footer-link link-hover">
-                      {CarsInfo.map((data, index) => (
+                      {carList.map((data, index) => (
                         <li key={index}>
                           <Link
                             style={{ width: 400 }}
@@ -331,7 +351,7 @@ const FooterFour = () => {
                               pathname: `${
                                 process.env.PUBLIC_URL +
                                 "/gallery/" +
-                                data.title
+                                data.path
                               }`,
                               state: { data: data },
                             }}

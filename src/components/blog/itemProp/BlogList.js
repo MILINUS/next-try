@@ -19,7 +19,7 @@ const BlogList = ({ item, StyleVar,index,service }) => {
     <Link
       style={{ cursor: "pointer", width: "80%",background:"#fff" }}
       to={{
-        pathname: `${process.env.PUBLIC_URL + "/gallery/" + item.title}`,
+        pathname: `${process.env.PUBLIC_URL + "/gallery/" + item.path}`,
         state: { data: item,service:service },
       }}
       className={`rn-card ${StyleVar}`}
