@@ -247,10 +247,9 @@ function ContactForm({
       </div>
 
       <div
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column",marginTop:15,marginBottom:15 }}
         className="form-group"
       >
-        {}
         {error ? (
           <div
             style={{
