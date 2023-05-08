@@ -72,7 +72,7 @@ const CarsInfo = [
     categorie_location: [
       "location de voiture",
       "location avec chauffeur",
-      "transfert avec chauffeur",
+      // "transfert avec chauffeur",
     ],
     price: "1200",
     year: "2022",
@@ -164,7 +164,7 @@ const CarsInfo = [
     categorie_location: [
       "location de voiture",
       "location avec chauffeur",
-      "transfert avec chauffeur",
+      // "transfert avec chauffeur",
     ],
     type: "SUV",
     brand: "Bentley",
@@ -208,7 +208,7 @@ const CarsInfo = [
     categorie_location: [
       "location de voiture",
       "location avec chauffeur",
-      "transfert avec chauffeur",
+      // "transfert avec chauffeur",
     ],
     type: "SUV",
     brand: "ROLLS ROYCE",

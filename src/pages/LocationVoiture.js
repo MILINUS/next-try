@@ -44,7 +44,7 @@ const LocationVoiture = () => {
     <>
       <main className="page-wrapper">
         <div className="page_container">
-          <HeaderMain />`
+          <HeaderMain />
           <div className="search_container">
             <div className="formgroup">
               <DropdownList
@@ -56,7 +56,7 @@ const LocationVoiture = () => {
                 data={[
                   "location de voiture",
                   "location avec chauffeur",
-                  "transfert avec chauffeur",
+                  // "transfert avec chauffeur",
                 ]}
               />
             </div>

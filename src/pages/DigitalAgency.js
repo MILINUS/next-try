@@ -119,7 +119,7 @@ const DigitalAgency = () => {
                         data={[
                           "location de voiture",
                           "location avec chauffeur",
-                          "transfert avec chauffeur",
+                          // "transfert avec chauffeur",
                         ]}
                         onChange={(e) => setService(e)}
                       />
@@ -158,7 +158,7 @@ const DigitalAgency = () => {
                             "Voitures-Sportives",
                             "SUV",
                             "Minivans De Luxe",
-                            "Limousine",
+                            // "Limousine",
                           ]}
                           onChange={(e) => setCarType(e)}
                         />

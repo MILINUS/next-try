@@ -41,26 +41,28 @@ import CarsSlider from "../service/carsSlider";
 import FooterFour from "../../common/footer/FooterFour";
 import HeaderMain from "../../common/header/HeaderMain";
 import { FirestoreDb } from "../../Firebase";
-import { collection, getDocs,query,where } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 const Elements = ({ props }) => {
   const location = useLocation();
   const [selected, setSelected] = useState(false);
   const onChange = (time) => {
     setValue(time);
   };
-  const backUp=[
+  const backUp = [
     {
-      original: "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c",
-      thumbnail: "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c"
+      original:
+        "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c",
+      thumbnail:
+        "https://firebasestorage.googleapis.com/v0/b/sport-cars-luxury.appspot.com/o/Porshe_MACAN%2F1.jpg?alt=media&token=45ce0891-849e-4a6e-afe5-93e302a9c93c",
     },
-  ]
+  ];
   const [departureLocation, setDepartureLocation] = useState("");
   const [arrivalLocation, setArrivalLocation] = useState("");
   const [carList, setCarList] = useState([]);
   const [dataChange, setDataChange] = useState(false);
   const addTocities = async () => {
-    const carsRef=collection(FirestoreDb, " Cars")
-    const q= query(carsRef,where("id","<",6))
+    const carsRef = collection(FirestoreDb, " Cars");
+    const q = query(carsRef, where("id", "<", 6));
     await getDocs(q).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -71,8 +73,8 @@ const Elements = ({ props }) => {
     });
   };
   useEffect(() => {
-    if(location?.state?.service&&location.state.service!==""){
-      setService(location.state.service)
+    if (location?.state?.service && location.state.service !== "") {
+      setService(location.state.service);
     }
     addTocities();
   }, [dataChange]);
@@ -107,12 +109,12 @@ const Elements = ({ props }) => {
     ].join("-");
   }
   const [value, setValue] = useState("10:00");
-  const [theCarData,setTheCarData]=useState(null)
+  const [theCarData, setTheCarData] = useState(null);
   const [dataChange1, setDataChange1] = useState(false);
   const pathname = window.location.pathname;
   const getOneCar = async () => {
-    const carsRef=collection(FirestoreDb, " Cars")
-    const q= query(carsRef,where("path","==",pathname.split("/")[2]))
+    const carsRef = collection(FirestoreDb, " Cars");
+    const q = query(carsRef, where("path", "==", pathname.split("/")[2]));
     await getDocs(q).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -125,11 +127,15 @@ const Elements = ({ props }) => {
   useEffect(() => {
     getOneCar();
     addTocities();
-    console.log("The car Data",theCarData,pathname.split("/")[2])
-  }, [dataChange,dataChange1]);
-  const CarData = location?.state?.data?location?.state?.data:theCarData?theCarData[0]:null;
+    console.log("The car Data", theCarData, pathname.split("/")[2]);
+  }, [dataChange, dataChange1]);
+  const CarData = location?.state?.data
+    ? location?.state?.data
+    : theCarData
+    ? theCarData[0]
+    : null;
   console.log("DATa", CarData);
-  const [service, setService] = useState( "location de voiture");
+  const [service, setService] = useState("location de voiture");
   const format = "HH:mm";
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
@@ -151,7 +157,7 @@ const Elements = ({ props }) => {
             </div>
             <div className={styles.row_s}>
               <div className={styles.col_12}>
-                <ImageGallery items={CarData?CarData.image:backUp} />
+                <ImageGallery items={CarData ? CarData.image : backUp} />
                 <div className={styles.car_info_container}>
                   <div className="row d-none d-md-block">
                     <div className="cols-12">
@@ -182,8 +188,26 @@ const Elements = ({ props }) => {
                 </div>
               </div>
               <div className="cols-xs-12 cols-sm-12 cols-md-4">
+                <form className={styles.car_info_section} style={{backgroundColor:"#f6cc51"}}>
+                  <h6 style={{ color: "black" }} htmlFor="fromDate">
+                    CHANGER DE SERVICE
+                  </h6>
+                  <div  style={{backgroundColor:'black',width:150,height:3,marginTop:-27,marginBottom:15}} />
+                  <div >
+                    <DropdownList
+                      value={service}
+                      onChange={(nextValue) => setService(nextValue)}
+                      className="dropdown_customized"
+                      data={CarData?.categorie_location}
+                      id="drop"
+                      selected={null}
+                    />
+                  </div>
+                </form>
                 <form className={styles.car_info_section}>
-                  <h6 style={{color:"black"}} htmlFor="fromDate">PRISE EN CHARGE & DESTINATION</h6>
+                  <h6 style={{ color: "black" }} htmlFor="fromDate">
+                    PRISE EN CHARGE & DESTINATION
+                  </h6>
                   <div className={styles.big_separator} />
 
                   {service === "transfert avec chauffeur" ? (
@@ -279,7 +303,7 @@ const Elements = ({ props }) => {
                 {service === "location de voiture" ? (
                   <div className={styles.car_info_section}>
                     <div>
-                      <h6 style={{color:"black"}}>TARIFS</h6>
+                      <h6 style={{ color: "black" }}>TARIFS</h6>
                       <table className={styles.rates}>
                         <tbody>
                           <tr>
@@ -309,7 +333,7 @@ const Elements = ({ props }) => {
                 ) : service === "location avec chauffeur" ? (
                   <div className={styles.car_info_section}>
                     <div>
-                      <h6 style={{color:"black"}}>TARIFS</h6>
+                      <h6 style={{ color: "black" }}>TARIFS</h6>
                       <table className={styles.rates}>
                         <tbody>
                           <tr>
@@ -334,7 +358,9 @@ const Elements = ({ props }) => {
                   </div>
                 ) : service === "transfert avec chauffeur" ? (
                   <div className={styles.car_info_section}>
-                    <h6 style={{color:"black"}} className="yellow-underline">Date & Heure</h6>
+                    <h6 style={{ color: "black" }} className="yellow-underline">
+                      Date & Heure
+                    </h6>
                     <div
                       style={{ marginLeft: 12 }}
                       className="Date_plus_time_container"
@@ -361,7 +387,9 @@ const Elements = ({ props }) => {
                 ) : null}
 
                 <div className={styles.car_info_section}>
-                  <h6 style={{color:"black"}}>CARACTÉRISTIQUES DU VÉHICULE</h6>
+                  <h6 style={{ color: "black" }}>
+                    CARACTÉRISTIQUES DU VÉHICULE
+                  </h6>
                   <div
                     className="row_s  row_s_special"
                     style={{ marginLeft: 25 }}
@@ -417,9 +445,7 @@ const Elements = ({ props }) => {
                       </div>
                     </div>
                     <div className="col2 car-feature-size-mobile">
-                      <div
-                       className="icon-special"
-                      >
+                      <div className="icon-special">
                         <img
                           style={{ height: 24, width: 24 }}
                           src={seat}
@@ -445,9 +471,7 @@ const Elements = ({ props }) => {
                       }}
                     >
                       <div className="col2 car-feature-size-mobile">
-                        <div
-                          className="icon-special"
-                        >
+                        <div className="icon-special">
                           <img
                             style={{ height: 24, width: 24, marginLeft: -30 }}
                             src={Engine}
@@ -462,9 +486,7 @@ const Elements = ({ props }) => {
                       </div>
                       <div style={{ width: "30px" }} />
                       <div className="col2 car-feature-size-mobile">
-                        <div
-                         className="icon-special"
-                        >
+                        <div className="icon-special">
                           <img
                             style={{ height: 24, width: 24, marginLeft: 15 }}
                             src={fuel}
@@ -478,20 +500,6 @@ const Elements = ({ props }) => {
                     </div>
                   </div>
                 </div>
-                <form className={styles.car_info_section}>
-                  <h6 style={{color:"black"}} htmlFor="fromDate">CHANGER DE SERVICE</h6>
-                  <div className={styles.big_separator} />
-                  <div>
-                    <DropdownList
-                      value={service}
-                      onChange={(nextValue) => setService(nextValue)}
-                      className="dropdown_customized"
-                      data={CarData?.categorie_location}
-                      id="drop"
-                      selected={null}
-                    />
-                  </div>
-                </form>
               </div>
             </div>
           </div>
@@ -517,7 +525,7 @@ const Elements = ({ props }) => {
                 </div>
               ))}
             </div> */}
-              <div style={{backgroundColor:"#ececec"}}>
+              <div style={{ backgroundColor: "#ececec" }}>
                 <CarsSlider
                   serviceStyle="gallery-style"
                   textAlign="text-start"

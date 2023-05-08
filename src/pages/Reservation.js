@@ -10,7 +10,7 @@ import { DropdownList } from "react-widgets";
 import Checkbox from "@mui/material/Checkbox";
 import dayjs from "dayjs";
 import ContactInForm from "../elements/contact/ContactInForm";
-import { TimePicker } from "antd";
+import { Card, TimePicker } from "antd";
 import AM from "./Logos/AsMa.jpeg";
 import AU from "./Logos/audi.jpeg";
 import BT from "./Logos/BENTLEY.jpeg";
@@ -72,6 +72,7 @@ console.log("redirect")
     history.push('/gallery/'+pathname.split('/')[2])
     }
   },[])
+  const [service, setService] = useState( "location de voiture");
   const [TimeValue, setTimeValue] = useState("10:00");
   const [TimeValue2, setTimeValue2] = useState("14:00");
   const [cp, setCp] = useState("");
@@ -135,9 +136,10 @@ console.log("redirect")
   const [departureMinute, setDepartureMinute] = useState("00");
   const [arrivalHour, setArrivalHour] = useState(14);
   const [arrivalMinute, setArrivalMinute] = useState("00");
+  const FullPriceLock=NumberOfDays<=3?CarData?.price:NumberOfDays>3&&NumberOfDays<=7?CarData.price4to7:CarData.price8plus
   const Price = checked3
-    ? CarData?.price * NumberOfDays + CarData?.AssReduc * NumberOfDays
-    : CarData?.price * NumberOfDays;
+    ? FullPriceLock * NumberOfDays + CarData?.AssReduc * NumberOfDays
+    : FullPriceLock * NumberOfDays;
   const getDeparturHour = (value) => {
     const departureMinute = (new Date(value.$d).getMinutes() / 60).toFixed(2);
     if (departureMinute > 0.5) {
@@ -193,6 +195,11 @@ console.log("redirect")
     }
   }, [TimeValue, TimeValue2, HourlyRate, TimeSpent]);
   const ChauffLocationPrice = HourlyRate * TimeSpent;
+  useEffect(()=>{
+    if(location?.state?.service&&location.state.service!==""){
+      setService(location.state.service)
+    }
+  },[])
   return (
     <>
       <SEO title="Gallery ||  SPORT CARS & LUXURY - React Business  Template" />
@@ -305,7 +312,7 @@ console.log("redirect")
                           {NumberOfDays >= 0 ? NumberOfDays : 0}
                         </td>
                       </tr>
-                      {location?.state?.service === "location de voiture" ? (
+                      {service === "location de voiture" ? (
                         <>
                           <tr style={{ borderBottom: "1.3px solid grey" }}>
                             <td
@@ -325,12 +332,12 @@ console.log("redirect")
                                 color: "black",
                               }}
                             >
-                              {NumberOfDays * 200}km
+                              {NumberOfDays * 150}km
                             </td>
                           </tr>
                         </>
                       ) : null}
-                      {location?.state?.service === "location avec chauffeur" ? (
+                      {service === "location avec chauffeur" ? (
                         <tr style={{ borderBottom: "1.3px solid grey" }}>
                           <td
                             style={{
@@ -354,7 +361,7 @@ console.log("redirect")
                         </tr>
                       ) : null}
 
-                      {location?.state?.service === "location de voiture" ? (
+                      {service === "location de voiture" ? (
                         <tr style={{ borderBottom: "1.3px solid grey" }}>
                           <td
                             style={{
@@ -392,7 +399,7 @@ console.log("redirect")
                         >
                           Montant total
                         </td>
-                        {location?.state?.service === "location de voiture" ? (
+                        {service === "location de voiture" ? (
                           <td
                             style={{
                               fontWeight: 600,
@@ -441,7 +448,7 @@ console.log("redirect")
                       arrivalLocation={arrivalLocation}
                       Price={Price}
                       NumberOfDays={NumberOfDays}
-                      service={location?.state?.service}
+                      service={service}
                       carData={location?.state?.data}
                       startDate={formatDate(startDate)}
                       endDate={formatDate(endDate)}
@@ -470,6 +477,21 @@ console.log("redirect")
                 </div>
                 <div className="  cols-xs-12 cols-sm-12 cols-md-5">
                   <div className="extra-features">
+                  <form className={styles.car_info_section} style={{backgroundColor:"#f6cc51"}}>
+                      <h6 style={{ color: "black" }} htmlFor="fromDate">
+                      CHANGER DE SERVICE
+                      </h6>
+                      <div style={{backgroundColor:'black',width:150,height:3,marginTop:-27,marginBottom:15}} />
+                      
+                      <DropdownList
+                      value={service}
+                      onChange={(nextValue) => setService(nextValue)}
+                      className="dropdown_customized"
+                      data={CarData?.categorie_location}
+                      id="drop"
+                      selected={null}
+                    />
+                    </form>
                     <form className={styles.car_info_section}>
                       <h6 style={{ color: "black" }} htmlFor="fromDate">
                         MODIFIER LES DATES DE RÉSERVATION
@@ -507,7 +529,7 @@ console.log("redirect")
                       </div>
                     </form>
                     <form className={styles.car_info_section} action="#">
-                      {location?.state?.service === "location de voiture" ? (
+                      {service=== "location de voiture" ? (
                         <>
                           <h6 style={{ color: "black" }} htmlFor="fromDate">
                             Services additionnels
@@ -676,7 +698,7 @@ console.log("redirect")
                         PRISE EN CHARGE & DESTINATION
                       </h6>
                       <div className={styles.big_separator} />
-                      {location?.state?.service === "location de voiture" ? (
+                      {service === "location de voiture" ? (
                         <>
                           {" "}
                           <div
@@ -815,7 +837,7 @@ console.log("redirect")
               arrivalLocation={arrivalLocation}
               Price={Price}
               NumberOfDays={NumberOfDays}
-              service={location?.state?.service}
+              service={service}
               carData={location?.state?.data}
               startDate={formatDate(startDate)}
               endDate={formatDate(endDate)}
