@@ -81,9 +81,16 @@ const Elements = ({ props }) => {
   function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
   }
-  useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+  const scrollToTop = () =>{
+    window.scrollTo({
+        top: 0, 
+        behavior: 'smooth'
+    });
+};
+useEffect(()=>{
+  console.log("scrolled")
+  scrollToTop()
+},[])
   const DepartureLocations = [
     "Antibes",
     "Bruxelles",
