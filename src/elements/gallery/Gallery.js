@@ -81,6 +81,9 @@ const Elements = ({ props }) => {
   function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
   }
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
   const DepartureLocations = [
     "Antibes",
     "Bruxelles",
