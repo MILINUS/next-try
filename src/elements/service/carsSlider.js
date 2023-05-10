@@ -36,7 +36,7 @@ const CarsSlider = ({ CarsInfo, textAlign, serviceStyle,carData }) => {
                   </h4>
                   <h6  style={{color:"black"}}>
                     A partir de{" "}
-                    <span style={{ color: "#f6cc51" }}>{val.price}€</span> par
+                    <span style={{ color: "#f6cc51" }}>{val.price8plus}€</span> par
                     jour
                   </h6>
                 </div>

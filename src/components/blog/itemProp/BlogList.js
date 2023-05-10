@@ -37,7 +37,7 @@ const BlogList = ({ item, StyleVar,index,service }) => {
           <h4  style={{ marginRight: 15,color:"black" }}>{item.title} {item.subtitle}</h4>
           <p style={{ fontSize: 14,color:"black" }}>
             disponible a partir de{" "}
-            <span style={{ color: "#f6cc51" }}>{item.price}€</span> par jour
+            <span style={{ color: "#f6cc51" }}>{item.price8plus}€</span> par jour
           </p>
           <ul
             className="rn-meta-list"
