@@ -26,7 +26,7 @@ const ServiceList = [
     title: "TRANSFERT AVEC CHAUFFEUR",
     service: "transfert avec chauffeur",
     description:
-      " SPORT CARS & LUXURY offre un service de transfert de qualité avec des limousines et des mini-fourgonnettes.",
+      " SPORT CARS & LUXURY offre un service de transfert de qualité avec des limousines et des Vans.",
     Link: "/Location-Voiture",
   },
 ];
