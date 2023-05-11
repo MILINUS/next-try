@@ -21,7 +21,11 @@ const ScrollTop = () => {
         });
     };
     window.addEventListener('scroll', toggleVisible);
-
+    // const goToWhatsapp=()=>{
+    //     console.log("whatsapp")
+    //     const url = "whatsapp://";
+    //     window.location.replace(url);
+    // }
     return (
         <>
             <div 

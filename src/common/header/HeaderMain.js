@@ -3,7 +3,6 @@ import { FiMenu } from "react-icons/fi";
 import Logo from "../../elements/logo/Logo";
 import Nav from "./Nav";
 import MobileMenu from "./MobileMenu";
-import Darkmode2 from "./DarkmodeBackup";
 import useStickyHeader from "./useStickyHeader";
 
 const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
@@ -12,9 +11,8 @@ const HeaderMain = ({ btnStyle, HeaderSTyle }) => {
     setOffcanvasShow((prev) => !prev);
   };
   const ref = useRef();
-  let [check, setCheck] = useState(true);
   const sticky = useStickyHeader(50);
-  const headerClasses = `header-default ${sticky && check ? "sticky" : ""}`;
+  const headerClasses = `header-default ${sticky  ? "sticky" : ""}`;
   const [scrollPosition, setScrollPosition] = useState(0);
   const handleScroll = () => {
     const position = window.pageYOffset;

@@ -68,6 +68,12 @@ function ContactForm({
   console.log("is ther", error);
   const [clicked, setClicked] = useState(false);
   const [result, showresult] = useState(false);
+  console.log("props",
+  arrivalMinute,
+  departureMinute,
+  )
+  const contactDepartureMinute=departureMinute?departureMinute:""
+  const contactarrivalMinute=arrivalMinute?arrivalMinute:""
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -98,45 +104,45 @@ function ContactForm({
 
   return (
     <form className={`${formStyle}`} action="" onSubmit={sendEmail}>
-      <input style={{ display: "none" }} name="9LAWI" value={service} />
-      <input style={{ display: "none" }} name="voiture" value={carData.title} />
+      <input style={{ display: "none" }} name="9LAWI" defaultValue={service} />
+      <input style={{ display: "none" }} name="voiture" defaultValue={carData.title} />
       <input
         style={{ display: "none" }}
         name="voitureSub"
-        value={carData.subtitle}
+        defaultValue={carData.subtitle}
       />
-      <input style={{ display: "none" }} name="StartHour" value={departurHour} />
-      <input style={{ display: "none" }} name="StartMinute" value={departureMinute} />
-      <input style={{ display: "none" }} name="EndHour" value={arrivalHour} />
-      <input style={{ display: "none" }} name="EndMinute" value={arrivalMinute} />
-      <input style={{ display: "none" }} name="TimeSpent" value={TimeSpent} />
-      <input style={{ display: "none" }} name="startDate" value={startDate} />
-      <input style={{ display: "none" }} name="endDate" value={endDate} />
-      <input style={{ display: "none" }} name="ChauffLocationPrice" value={ChauffLocationPrice} />
-      <input style={{ display: "none" }} name="adresse" value={adresse} />
-      <input style={{ display: "none" }} name="cp" value={cp} />
-      <input style={{ display: "none" }} name="city" value={city} />
+      <input style={{ display: "none" }} name="StartHour" defaultValue={departurHour} />
+      <input style={{ display: "none" }} name="StartMinute" defaultValue={contactDepartureMinute} />
+      <input style={{ display: "none" }} name="EndHour" defaultValue={arrivalHour} />
+      <input style={{ display: "none" }} name="EndMinute" defaultValue={contactarrivalMinute} />
+      <input style={{ display: "none" }} name="TimeSpent" defaultValue={TimeSpent} />
+      <input style={{ display: "none" }} name="startDate" defaultValue={startDate} />
+      <input style={{ display: "none" }} name="endDate" defaultValue={endDate} />
+      <input style={{ display: "none" }} name="ChauffLocationPrice" defaultValue={ChauffLocationPrice} />
+      <input style={{ display: "none" }} name="adresse" defaultValue={adresse} />
+      <input style={{ display: "none" }} name="cp" defaultValue={cp} />
+      <input style={{ display: "none" }} name="city" defaultValue={city} />
       <input
         style={{ display: "none" }}
         name="NumberOfDays"
-        value={`${NumberOfDays} jours`}
+        defaultValue={`${NumberOfDays} jours`}
       />
-      <input style={{ display: "none" }} name="Price" value={Price} />
+      <input style={{ display: "none" }} name="Price" defaultValue={Price} />
       <input
         style={{ display: "none" }}
         name="departureLocation"
-        value={departureLocation}
+        defaultValue={departureLocation}
       />
       <input
         style={{ display: "none" }}
         name="arrivalLocation"
-        value={arrivalLocation}
+        defaultValue={arrivalLocation}
       />
-      <input style={{ display: "none" }} name="franchise" value={franchise} />
+      <input style={{ display: "none" }} name="franchise" defaultValue={franchise} />
       <input
         style={{ display: "none" }}
         name="isSpecialFranchise"
-        value={YesNo}
+        defaultValue={YesNo}
       />
       <div
         className="form-group"

@@ -82,17 +82,7 @@ const Elements = ({ props }) => {
   function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
   }
-  const scrollToTop = () =>{
-    window.scrollTo({
-        top: 0, 
-        behavior: 'smooth'
-    });
-};
-useEffect(()=>{
-  setBack(true)
-  console.log("scrolled")
-  scrollToTop()
-},[back])
+
   const DepartureLocations = [
     "Antibes",
     "Bruxelles",
@@ -151,6 +141,22 @@ useEffect(()=>{
   const format = "HH:mm";
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
+  const scrollToTop = () =>{
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+};
+useEffect(()=>{
+  // setBack(true)
+  setTimeout(()=>{
+    console.log("scrolled")
+    scrollToTop()
+    console.log("timeout")
+  },100)
+  console.log("scrolled")
+  scrollToTop()
+},[pathname])
   return (
     <>
       <SEO title="Gallery || SPORT CARS & LUXURY" />
