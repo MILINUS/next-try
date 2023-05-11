@@ -68,8 +68,6 @@ function ContactForm({
   console.log("is ther", error);
   const [clicked, setClicked] = useState(false);
   const [result, showresult] = useState(false);
-  console.log("fuck", endDate);
-  useEffect(() => {}, [endDate]);
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
@@ -96,7 +94,7 @@ function ContactForm({
 
   setTimeout(() => {
     showresult(false);
-  }, 5000);
+  }, 20000);
 
   return (
     <form className={`${formStyle}`} action="" onSubmit={sendEmail}>
@@ -247,7 +245,7 @@ function ContactForm({
       </div>
 
       <div
-        style={{ display: "flex", flexDirection: "column",marginTop:15,marginBottom:15 }}
+        style={{ display: "flex", flexDirection: "column",marginTop:25,marginBottom:20 }}
         className="form-group"
       >
         {error ? (
