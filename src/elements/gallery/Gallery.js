@@ -60,6 +60,7 @@ const Elements = ({ props }) => {
   const [arrivalLocation, setArrivalLocation] = useState("");
   const [carList, setCarList] = useState([]);
   const [dataChange, setDataChange] = useState(false);
+  const [back,setBack]=useState(false)
   const addTocities = async () => {
     const carsRef = collection(FirestoreDb, " Cars");
     const q = query(carsRef, where("id", "<", 6));
@@ -88,9 +89,10 @@ const Elements = ({ props }) => {
     });
 };
 useEffect(()=>{
+  setBack(true)
   console.log("scrolled")
   scrollToTop()
-},[])
+},[back])
   const DepartureLocations = [
     "Antibes",
     "Bruxelles",
@@ -283,7 +285,7 @@ useEffect(()=>{
                         *Des frais de livraison supplémentaires peuvent
                         s'appliquer
                       </label>
-                      <button className={styles.btn_primary} type="button">
+                      <button onClick={()=>console.log("reservation button clicked")} className={styles.btn_primary} type="button">
                         {startDate <= endDate ? (
                           <Link
                             style={{ cursor: "pointer", color: "black" }}
@@ -301,7 +303,7 @@ useEffect(()=>{
                               },
                             }}
                           >
-                            Réserver ce véhicule
+                            Demandez un Devis
                           </Link>
                         ) : (
                           <> Réserver ce véhicule</>
