@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import SEO from "../../common/SEO";
 import ImageGallery from "react-image-gallery";
 import styles from "./Gallery.module.scss";
+import * as Yup from "yup";
 import "./Gallery.module.scss";
 import "react-datepicker/dist/react-datepicker.css";
 import { DatePicker, DropdownList } from "react-widgets/cjs";
@@ -36,6 +37,7 @@ import {
   Link,
   Redirect,
 } from "react-router-dom";
+import { useFormik } from "formik";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import CarsSlider from "../service/carsSlider";
 import FooterFour from "../../common/footer/FooterFour";
@@ -60,7 +62,7 @@ const Elements = ({ props }) => {
   const [arrivalLocation, setArrivalLocation] = useState("");
   const [carList, setCarList] = useState([]);
   const [dataChange, setDataChange] = useState(false);
-  const [back,setBack]=useState(false)
+  const [back, setBack] = useState(false);
   const addTocities = async () => {
     const carsRef = collection(FirestoreDb, " Cars");
     const q = query(carsRef, where("id", "<", 6));
@@ -82,7 +84,13 @@ const Elements = ({ props }) => {
   function padTo2Digits(num) {
     return num.toString().padStart(2, "0");
   }
-
+  const reservationSchema = Yup.object().shape({
+    starterDate: Yup.date().default(() => new Date()),
+    enderDate: Yup.date().when(
+      "starterDate",
+      (eventStartDate, schema) => eventStartDate && schema.min(eventStartDate,"La date D'arrivée ne peut etre avant la Date de départ"))
+    // required("la date est obligatoire").nullable(true),
+  });
   const DepartureLocations = [
     "Antibes",
     "Bruxelles",
@@ -141,22 +149,31 @@ const Elements = ({ props }) => {
   const format = "HH:mm";
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
-  const scrollToTop = () =>{
+  const scrollToTop = () => {
     window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
+      top: 0,
+      behavior: "smooth",
     });
-};
-useEffect(()=>{
-  // setBack(true)
-  setTimeout(()=>{
-    console.log("scrolled")
-    scrollToTop()
-    console.log("timeout")
-  },100)
-  console.log("scrolled")
-  scrollToTop()
-},[pathname])
+  };
+  useEffect(() => {
+    // setBack(true)
+    setTimeout(() => {
+      console.log("scrolled");
+      scrollToTop();
+      console.log("timeout");
+    }, 100);
+    console.log("scrolled");
+    scrollToTop();
+  }, [pathname]);
+  const { values, errors, touched, setFieldValue, handleSubmit } =
+    useFormik({
+      initialValues: {
+        starterDate: new Date(),
+        enderDate: new Date(),
+      },
+      validationSchema: reservationSchema,
+    });
+    console.log("errors",errors)
   return (
     <>
       <SEO title="Gallery || SPORT CARS & LUXURY" />
@@ -206,12 +223,23 @@ useEffect(()=>{
                 </div>
               </div>
               <div className="cols-xs-12 cols-sm-12 cols-md-4">
-                <form className={styles.car_info_section} style={{backgroundColor:"#f6cc51"}}>
+                <form
+                  className={styles.car_info_section}
+                  style={{ backgroundColor: "#f6cc51" }}
+                >
                   <h6 style={{ color: "black" }} htmlFor="fromDate">
                     CHANGER DE SERVICE
                   </h6>
-                  <div  style={{backgroundColor:'black',width:150,height:3,marginTop:-27,marginBottom:15}} />
-                  <div >
+                  <div
+                    style={{
+                      backgroundColor: "black",
+                      width: 150,
+                      height: 3,
+                      marginTop: -27,
+                      marginBottom: 15,
+                    }}
+                  />
+                  <div>
                     <DropdownList
                       value={service}
                       onChange={(nextValue) => setService(nextValue)}
@@ -257,23 +285,27 @@ useEffect(()=>{
                       </div>
                     </>
                   ) : (
-                    <>
+                    <form >
                       <div className={styles.formgroup}>
                         <DatePicker
-                          value={startDate}
-                          onChange={(value) => setStartDate(value)}
+                          value={values.starterDate}
+                          onChange={(value) =>
+                            setFieldValue("starterDate", value)
+                          }
                           id="fromDate"
                           selected={null}
                         />
                       </div>
                       <div className={styles.formgroup}>
                         <DatePicker
-                          value={endDate}
-                          onChange={(value) => setEndDate(value)}
+                          value={values.enderDate}
+                          onChange={(value) =>
+                            setFieldValue("enderDate", value)
+                          }
                           id="toDate"
                           selected={null}
                         />
-                        {endDate < startDate && (
+                        {errors.enderDate && (
                           <span
                             style={{
                               color: "red",
@@ -281,8 +313,7 @@ useEffect(()=>{
                               marginLeft: 10,
                             }}
                           >
-                            La date D'arrivée ne peut etre avant la Date de
-                            départ
+                            {errors.enderDate}
                           </span>
                         )}
                       </div>
@@ -291,8 +322,14 @@ useEffect(()=>{
                         *Des frais de livraison supplémentaires peuvent
                         s'appliquer
                       </label>
-                      <button onClick={()=>console.log("reservation button clicked")} className={styles.btn_primary} type="button">
-                        {startDate <= endDate ? (
+                      <button
+                        onClick={() =>
+                          console.log("reservation button clicked")
+                        }
+                        className={styles.btn_primary}
+                        type="button"
+                      >
+                        {!errors.enderDate&& !errors.starterDate?(
                           <Link
                             style={{ cursor: "pointer", color: "black" }}
                             to={{
@@ -312,10 +349,15 @@ useEffect(()=>{
                             Demandez un Devis
                           </Link>
                         ) : (
-                          <div onClick={()=>console.log("you Clicked The Div")}> Demandez un Devise</div>
+                          <div
+                            onClick={() => console.log("you Clicked The Div")}
+                          >
+                            {" "}
+                            Demandez un Devise
+                          </div>
                         )}
                       </button>
-                    </>
+                    </form>
                   )}
                 </form>
                 {service === "location de voiture" ? (
