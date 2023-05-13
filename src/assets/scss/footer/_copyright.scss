@@ -20,6 +20,10 @@
         height: 27px;
         font-size: 14px !important;
     }
+    display: none;
+    @media (max-width: 768px) {
+        display: inline;
+    }
 }
 
 // Copyright Style One 

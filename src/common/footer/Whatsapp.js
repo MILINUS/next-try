@@ -11,7 +11,7 @@ const ScrollTop = () => {
         });
     };
     const goToWhatsapp=()=>{
-        const url = "whatsapp://";
+        const url ="https://wa.me/33776113621";
         window.location.replace(url);
     }
     return (

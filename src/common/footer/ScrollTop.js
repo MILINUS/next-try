@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {FiChevronUp} from "react-icons/fi";
 import Blury from '../Blury';
-
+import wp from './wp.png'
 
 const ScrollTop = () => {
     const [visible, setVisible] = useState(false)
@@ -21,18 +21,23 @@ const ScrollTop = () => {
         });
     };
     window.addEventListener('scroll', toggleVisible);
-    // const goToWhatsapp=()=>{
-    //     console.log("whatsapp")
-    //     const url = "whatsapp://";
-    //     window.location.replace(url);
-    // }
+    const goToWhatsapp=()=>{
+        const url ="https://wa.me/33776304953";
+        window.location.replace(url);
+    }
     return (
         <>
+        <div 
+            className="rn-back-top" 
+            onClick={goToWhatsapp}
+            style={{marginBottom:60}}
+            ><img  src={wp} alt="speed" /></div>
             <div 
             className="rn-back-top" 
             onClick={scrollToTop}
-            style={{display: visible ? 'inline' : 'none'}}
-            ><FiChevronUp /></div>
+            style={{display:visible?'inline':'none'}}
+            ><FiChevronUp/></div>
+           
             <Blury />
         </>
     )
