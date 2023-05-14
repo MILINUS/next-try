@@ -134,7 +134,7 @@ console.log("redirect")
   ];
   const [departurHour, setDeparturHour] = useState(10);
   const [departureMinute, setDepartureMinute] = useState("00");
-  const [arrivalHour, setArrivalHour] = useState(14);
+  const [arrivalHour, setArrivalHour] = useState(18);
   const [arrivalMinute, setArrivalMinute] = useState("00");
   const FullPriceLock=NumberOfDays<=3?CarData?.price:NumberOfDays>3&&NumberOfDays<=7?CarData.price4to7:CarData.price8plus
   const Price = checked3

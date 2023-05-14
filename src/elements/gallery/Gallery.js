@@ -92,6 +92,9 @@ const Elements = ({ props }) => {
     // required("la date est obligatoire").nullable(true),
   });
   const DepartureLocations = [
+    "Paris",
+    "Paris CDG",
+    "Paris Orly",
     "Antibes",
     "Bruxelles",
     "Cannes",
@@ -102,9 +105,6 @@ const Elements = ({ props }) => {
     "Monaco",
     "Nice",
     "Nice Aeroport",
-    "Paris",
-    "Paris CDG",
-    "Paris Orly",
     "St Tropez",
   ];
   function formatDate(date) {
@@ -147,8 +147,6 @@ const Elements = ({ props }) => {
   console.log("DATa", CarData);
   const [service, setService] = useState("location de voiture");
   const format = "HH:mm";
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
@@ -340,8 +338,8 @@ const Elements = ({ props }) => {
                               }`,
                               state: {
                                 data: CarData,
-                                startDate: formatDate(startDate),
-                                endDate: formatDate(endDate),
+                                startDate: formatDate(values.starterDate),
+                                endDate: formatDate(values.enderDate),
                                 service: service,
                               },
                             }}
