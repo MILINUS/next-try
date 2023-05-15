@@ -18,7 +18,9 @@ import SUV from "./Mac/SUV.jpeg";
 import Van from "./Mac/VAN.jpeg";
 import CC from "./Mac/CC.jpeg";
 import { FirestoreDb } from "../Firebase";
-import { collection, getDocs,query,where } from "firebase/firestore";
+import { useFormik } from "formik";
+import * as Yup from "yup";
+import { collection, getDocs, query, where } from "firebase/firestore";
 const BannerData = [
   {
     image: BannerImage,
@@ -28,7 +30,6 @@ const BannerData = [
   },
 ];
 
-
 const DigitalAgency = () => {
   const [service, setService] = useState("");
   const [carType, setCarType] = useState("");
@@ -36,8 +37,8 @@ const DigitalAgency = () => {
   const [carList, setCarList] = useState([]);
   const [dataChange, setDataChange] = useState(false);
   const addTocities = async () => {
-    const carsRef=collection(FirestoreDb, " Cars")
-    const q= query(carsRef,where("id","<",6))
+    const carsRef = collection(FirestoreDb, " Cars");
+    const q = query(carsRef, where("id", "<", 6));
     await getDocs(q).then((querySnapshot) => {
       const newData = querySnapshot.docs.map((doc) => ({
         ...doc.data(),
@@ -48,8 +49,25 @@ const DigitalAgency = () => {
     });
   };
   useEffect(() => {
+    setFieldValue("Service1", "");
+    setFieldValue("Cartype1", "");
+  }, []);
+  useEffect(() => {
     addTocities();
   }, [dataChange]);
+  const reservationSchema = Yup.object().shape({
+    Service1: Yup.string().required("ce champs est obligatoire"),
+    Cartype1: Yup.string().required("ce champs est obligatoire"),
+    // required("la date est obligatoire").nullable(true),
+  });
+  const { values, errors, touched, setFieldValue, handleSubmit } = useFormik({
+    initialValues: {
+      Service1: "",
+      Cartype1: "",
+    },
+    validationSchema: reservationSchema,
+  });
+  console.log("Yup errors", errors, touched);
   return (
     <>
       <SEO title="Digital Agency" />
@@ -115,23 +133,17 @@ const DigitalAgency = () => {
                         placeholder="Service"
                         style={{ marginTop: Clicked ? 15 : 0 }}
                         className="dropdown_customized width-button-container"
-                        value={service}
+                        value={values.Service1}
                         data={[
                           "location de voiture",
                           "location avec chauffeur",
                           // "transfert avec chauffeur",
                         ]}
-                        onChange={(e) => setService(e)}
+                        onChange={(e) => setFieldValue("Service1", e)}
                       />
-                      {Clicked && service === "" && (
-                        <span
-                          style={{
-                            color: "red",
-                            fontSize: 10,
-                            marginTop: Clicked ? 5 : 0,
-                          }}
-                        >
-                          Veuillez choisir un Service
+                      {errors.Service1 && Clicked && (
+                        <span style={{ color: "red", fontSize: 10 }}>
+                          {errors.Service1}
                         </span>
                       )}
                     </div>
@@ -148,23 +160,33 @@ const DigitalAgency = () => {
                       </label>
                       <div className="content">
                         <DropdownList
-                          value={carType}
+                          value={values.Cartype1}
                           className="dropdown_customized width-button-container"
                           placeholder="Type de vehicule"
                           data={[
                             "Cabriolet",
-                            // "Edition Limitée",
                             "Berlines De Luxe",
                             "Voitures-Sportives",
                             "SUV",
                             "Minivans De Luxe",
-                            // "Limousine",
                           ]}
-                          onChange={(e) => setCarType(e)}
+                          onChange={(e) => setFieldValue("Cartype1", e)}
                         />
+                        {errors.Cartype1&&Clicked&&
+                      <span style={{color:'red',fontSize:10}}>
+                        {errors.Cartype1}
+                      </span>
+
+                      }
                       </div>
                     </div>
-                    {Clicked && service !== "" ? (
+                    {/* {
+                      <button className="formgroup width-button-container">
+                          {!errors.Cartype1&&!errors.Service1?}
+                      </button>
+                    } */}
+
+                    {!errors.Cartype1 && !errors.Service1 ? (
                       <Link
                         to={{
                           pathname: "/Location-Voiture",
@@ -176,7 +198,6 @@ const DigitalAgency = () => {
                       >
                         <button
                           type="button"
-                          onClick={() => setClicked(true)}
                           className="width-button-container speial-stupid-button"
                         >
                           RECHERCHE
@@ -198,8 +219,8 @@ const DigitalAgency = () => {
                         type="button"
                         className="speial-stupid-button"
                         onClick={() => {
-                          setService("");
-                          setCarType("");
+                          setFieldValue("Service1", "");
+                          setFieldValue("Cartype1", "");
                         }}
                       >
                         EFFACER

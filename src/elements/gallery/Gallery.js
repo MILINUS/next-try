@@ -266,7 +266,7 @@ const Elements = ({ props }) => {
                           className="dropdown_customized"
                           data={DepartureLocations}
                           id="drop"
-                          selected={null}
+                          // selected={null}
                         />
 
                         <DropdownList
@@ -278,12 +278,12 @@ const Elements = ({ props }) => {
                           className="dropdown_customized"
                           data={DepartureLocations}
                           id="drop"
-                          selected={null}
+                          // selected={null}
                         />
                       </div>
                     </>
                   ) : (
-                    <form >
+                    <form  >
                       <div className={styles.formgroup}>
                         <DatePicker
                           value={values.starterDate}
@@ -291,7 +291,7 @@ const Elements = ({ props }) => {
                             setFieldValue("starterDate", value)
                           }
                           id="fromDate"
-                          selected={null}
+                          // selected={null}
                         />
                       </div>
                       <div className={styles.formgroup}>
@@ -301,7 +301,7 @@ const Elements = ({ props }) => {
                             setFieldValue("enderDate", value)
                           }
                           id="toDate"
-                          selected={null}
+                          // selected={null}
                         />
                         {errors.enderDate && (
                           <span
@@ -351,7 +351,7 @@ const Elements = ({ props }) => {
                             onClick={() => console.log("you Clicked The Div")}
                           >
                             {" "}
-                            Demandez un Devise
+                            Demandez un Devis
                           </div>
                         )}
                       </button>
