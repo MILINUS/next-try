@@ -1,18 +1,14 @@
 import React from 'react';
 import SEO from "../../common/SEO";
-import Layout from "../../common/Layout";
-import BreadcrumbOne from "../breadcrumb/BreadcrumbOne";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import ContactOne from "./ContactOne";
 import HeaderMain from '../../common/header/HeaderMain';
 import FooterFour from '../../common/footer/FooterFour';
-
 const Contact = () => {
     return (
         <>
             <SEO title="Contact ||  SPORT CARS & LUXURY - React Business  Template" />
-           <HeaderMain/>
-                {/* <BreadcrumbOne/> */}
+            <HeaderMain/>
                 <div style={{backgroundColor:'white'}} className="main-content">
                     {/* Start Contact Area  */}
                     <div className="rwt-contact-area rn-section-gap">

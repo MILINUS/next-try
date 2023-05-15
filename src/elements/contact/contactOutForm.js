@@ -9,16 +9,14 @@ const Result = () => {
 
 function ContactOutForm({ props, formStyle }) {
   const [result, showresult] = useState(false);
-  const serviceID = "service_t1fcovk";
-  const templateID = "template_vbhtpji";
   const sendEmail = (e) => {
     e.preventDefault();
     emailjs
       .sendForm(
-        serviceID,
-        templateID,
+        "service_t1fcovk",
+        "template_vbhtpji",
         e.target,
-        "user_jrfTH2e0Ely35ZCVFdT9S"
+        "b9r76JTuifJB_8t2H"
       )
       .then(
         (result) => {
