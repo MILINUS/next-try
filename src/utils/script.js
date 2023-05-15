@@ -3,6 +3,7 @@ export const slickDot = {
     infinite: true,
     slidesToShow: 1,
     slidesToScroll: 1,
+    speed:500,
     dots: true,
     arrows: true,
     responsive: [{
@@ -40,5 +41,6 @@ export const BannerActivation = {
     slidesToScroll: 1,
     dots: true,
     arrows: true,
+    speed:500
 };
 

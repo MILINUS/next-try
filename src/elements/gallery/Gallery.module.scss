@@ -2,18 +2,28 @@
 @import "react-datepicker/dist/react-datepicker.css";
 @import "../../../node_modules/react-widgets/styles.css";
 $breakpoint: 768px;
-.HomeImage{
+
+.HomeImage {
+    // transform: scale(2,2);
+    margin-top: -130px;
+    max-height: 800px;
+    background-size: 100% 150%;
+
     @media (max-width: 768px) {
-        background-size: contain;
-     }
+        // background-size: contain;
+        // margin-top: -30px;
+    }
 }
-.stupid_slider{
+
+.stupid_slider {
     margin-left: 300px;
+
     @media (max-width: 768px) {
         margin-left: 90px;
-     }
+    }
 }
-.icon-special{
+
+.icon-special {
     display: flex;
     flex-direction: column;
     margin-left: -50;
@@ -21,16 +31,19 @@ $breakpoint: 768px;
     align-items: center;
     justify-content: center
 }
-.specailForm{
+
+.specailForm {
     @media (max-width: 768px) {
-       display: none;
+        display: none;
     }
 }
-.specialForm2{
+
+.specialForm2 {
     @media (min-width: 768px) {
         display: none;
-     }
+    }
 }
+
 .searchButton {
     text-transform: uppercase;
     font-family: Lato;

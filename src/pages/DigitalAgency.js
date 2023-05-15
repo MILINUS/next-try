@@ -17,32 +17,18 @@ import Sport from "./Mac/Sportive.jpeg";
 import SUV from "./Mac/SUV.jpeg";
 import Van from "./Mac/VAN.jpeg";
 import CC from "./Mac/CC.jpeg";
-import A1 from "./A1.jpg";
-import A2 from "./A2.jpg";
-import A3 from "./A3.jpg";
 import { FirestoreDb } from "../Firebase";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { collection, getDocs, query, where } from "firebase/firestore";
 const BannerData = [
   {
-    image: A1,
+    image: BannerImage,
     title: "Digital Agency.",
     description:
       "We help our clients succeed by creating brand identities, digital experiences, and print materials.",
   },
-  {
-    image: A2,
-    title: "Digital Agency.",
-    description:
-      "We help our clients succeed by creating brand identities, digital experiences, and print materials.",
-  },
-  {
-    image: A3,
-    title: "Digital Agency.",
-    description:
-      "We help our clients succeed by creating brand identities, digital experiences, and print materials.",
-  },
+  
 ];
 
 const DigitalAgency = () => {
@@ -102,6 +88,7 @@ const DigitalAgency = () => {
                 <div
                   className="height-950 img-filter bg_image HomeImage"
                   style={{
+                   
                     backgroundImage: `url(${process.env.PUBLIC_URL} ${data.image})`,
                   }}
                 >
