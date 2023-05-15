@@ -6,6 +6,7 @@ import LocationVoiture from "./pages/LocationVoiture";
 import Gallery from "./elements/gallery/Gallery";
 import "./assets/scss/style.scss";
 import Reservation from "./pages/Reservation";
+import Contact from "./elements/contact/Contact";
 
 const App = () => {
   return (
@@ -32,6 +33,11 @@ const App = () => {
               path={`${process.env.PUBLIC_URL + "/gallery/:id"}`}
               exact
               component={Gallery}
+            />
+            <Route
+              path={`${process.env.PUBLIC_URL + "/contact"}`}
+              exact
+              component={Contact}
             />
           </Switch>
         </PageScrollTop>

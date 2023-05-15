@@ -4,14 +4,16 @@ import Layout from "../../common/Layout";
 import BreadcrumbOne from "../breadcrumb/BreadcrumbOne";
 import SectionTitle from "../sectionTitle/SectionTitle";
 import ContactOne from "./ContactOne";
+import HeaderMain from '../../common/header/HeaderMain';
+import FooterFour from '../../common/footer/FooterFour';
 
 const Contact = () => {
     return (
         <>
             <SEO title="Contact ||  SPORT CARS & LUXURY - React Business  Template" />
-            <Layout>
-                
-                <div className="main-content">
+           <HeaderMain/>
+                {/* <BreadcrumbOne/> */}
+                <div style={{backgroundColor:'white'}} className="main-content">
                     {/* Start Contact Area  */}
                     <div className="rwt-contact-area rn-section-gap">
                         <div className="container">
@@ -31,7 +33,7 @@ const Contact = () => {
                     </div>
                     {/* End Contact Area  */}
                 </div>
-            </Layout>
+            <FooterFour/>
         </>
     )
 }

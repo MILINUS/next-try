@@ -78,7 +78,7 @@ function ContactForm({
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_ydbpmko",
+        "service_t1fcovk",
         service === "location de voiture"
           ? "template_l6uz127"
           : "template_gpve1tk",
@@ -105,11 +105,11 @@ function ContactForm({
   return (
     <form className={`${formStyle}`} action="" onSubmit={sendEmail}>
       <input style={{ display: "none" }} name="9LAWI" defaultValue={service} />
-      <input style={{ display: "none" }} name="voiture" defaultValue={carData.title} />
+      <input style={{ display: "none" }} name="voiture" defaultValue={carData?.title} />
       <input
         style={{ display: "none" }}
         name="voitureSub"
-        defaultValue={carData.subtitle}
+        defaultValue={carData?.subtitle}
       />
       <input style={{ display: "none" }} name="StartHour" defaultValue={departurHour} />
       <input style={{ display: "none" }} name="StartMinute" defaultValue={contactDepartureMinute} />
