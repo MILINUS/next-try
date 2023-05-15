@@ -320,13 +320,7 @@ const Elements = ({ props }) => {
                         *Des frais de livraison supplémentaires peuvent
                         s'appliquer
                       </label>
-                      <button
-                        onClick={() =>
-                          console.log("reservation button clicked")
-                        }
-                        className={styles.btn_primary}
-                        type="button"
-                      >
+                      
                         {!errors.enderDate&& !errors.starterDate?(
                           <Link
                             style={{ cursor: "pointer", color: "black" }}
@@ -343,8 +337,14 @@ const Elements = ({ props }) => {
                                 service: service,
                               },
                             }}
-                          >
-                            Demandez un Devis
+                          ><button
+                          onClick={() =>
+                            console.log("reservation button clicked")
+                          }
+                          className={styles.btn_primary}
+                          type="button"
+                        >Demandez un Devis</button>
+                            
                           </Link>
                         ) : (
                           <div
@@ -354,7 +354,6 @@ const Elements = ({ props }) => {
                             Demandez un Devis
                           </div>
                         )}
-                      </button>
                     </form>
                   )}
                 </form>
