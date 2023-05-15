@@ -117,6 +117,9 @@ console.log("redirect")
   const [departureLocation, setDepartureLocation] = useState("");
   const [arrivalLocation, setArrivalLocation] = useState("");
   const DepartureLocations = [
+    "Paris",
+    "Paris CDG",
+    "Paris Orly",
     "Antibes",
     "Bruxelles",
     "Cannes",
@@ -127,9 +130,6 @@ console.log("redirect")
     "Monaco",
     "Nice",
     "Nice Aeroport",
-    "Paris",
-    "Paris CDG",
-    "Paris Orly",
     "St Tropez",
   ];
   const [departurHour, setDeparturHour] = useState(10);
@@ -734,6 +734,7 @@ console.log("redirect")
                                 className="dropdown_customized"
                                 data={DepartureLocations}
                                 id="drop"
+                                placeholder="ville de depart"
                                 selected={null}
                               />
                             </div>
@@ -762,6 +763,7 @@ console.log("redirect")
                                 }
                                 className="dropdown_customized"
                                 data={DepartureLocations}
+                                placeholder="Ville d'arrivée"
                                 id="drop"
                                 selected={null}
                               />
