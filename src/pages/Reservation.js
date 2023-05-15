@@ -10,7 +10,7 @@ import { DropdownList } from "react-widgets";
 import Checkbox from "@mui/material/Checkbox";
 import dayjs from "dayjs";
 import ContactInForm from "../elements/contact/ContactInForm";
-import { Card, TimePicker } from "antd";
+import { TimePicker } from "antd";
 import AM from "./Logos/AsMa.jpeg";
 import AU from "./Logos/audi.jpeg";
 import BT from "./Logos/BENTLEY.jpeg";
