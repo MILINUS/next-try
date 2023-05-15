@@ -2,6 +2,11 @@
 @import "react-datepicker/dist/react-datepicker.css";
 @import "../../../node_modules/react-widgets/styles.css";
 $breakpoint: 768px;
+.HomeImage{
+    @media (max-width: 768px) {
+        background-size: contain;
+     }
+}
 .stupid_slider{
     margin-left: 300px;
     @media (max-width: 768px) {
