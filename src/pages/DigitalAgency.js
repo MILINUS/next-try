@@ -193,7 +193,7 @@ const DigitalAgency = () => {
                         to={{
                           pathname: "/Location-Voiture",
                           state: {
-                            data: { carType: carType, service: service },
+                            data: { carType: values.Cartype1, service: values.Service1 },
                           },
                         }}
                         className="formgroup width-button-container"
