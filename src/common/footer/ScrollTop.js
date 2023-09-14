@@ -22,7 +22,7 @@ const ScrollTop = () => {
     };
     window.addEventListener('scroll', toggleVisible);
     const goToWhatsapp=()=>{
-        const url ="https://wa.me/33782879692";
+        const url ="https://wa.me/33675269046";
         window.location.replace(url);
     }
     return (
