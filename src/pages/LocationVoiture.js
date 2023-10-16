@@ -104,6 +104,50 @@ const LocationVoiture = () => {
                 className="car-categories-image-wrapper"
                 style={{ height: 200, marginTop: 20, marginBottom: -15 }}
               >
+                     <div
+                  style={{
+                    width: carType === "SUV" ? 160 : 120,
+                    height: carType === "SUV" ? 160 : 120,
+                  }}
+                  onClick={() => setCartype("SUV")}
+                  className="car-category-image "
+                >
+                  <img
+                    src={SUV}
+                    className="img-fluid"
+                    alt="car category"
+                    id="Cabriolet"
+                  />
+                  <p
+                    className="text-center"
+                    style={{ color: carType === "SUV" ? "gold" : "grey" }}
+                  >
+                    SUV
+                  </p>
+                </div>
+                <div
+                  style={{
+                    width: carType === "Minivans De Luxe" ? 160 : 120,
+                    height: carType === "Minivans De Luxe" ? 160 : 120,
+                  }}
+                  onClick={() => setCartype("Minivans De Luxe")}
+                  className="car-category-image "
+                >
+                  <img
+                    src={Van}
+                    className="img-fluid"
+                    alt="car category"
+                    id="Cabriolet"
+                  />
+                  <p
+                    className="text-center"
+                    style={{
+                      color: carType === "Minivans De Luxe" ? "gold" : "grey",
+                    }}
+                  >
+                    Minivans De Luxe
+                  </p>
+                </div>
                 <div
                   style={{
                     width: carType === "Cabriolet" ? 160 : 120,
@@ -190,50 +234,7 @@ const LocationVoiture = () => {
                     Voitures-Sportives
                   </p>
                 </div>
-                <div
-                  style={{
-                    width: carType === "SUV" ? 160 : 120,
-                    height: carType === "SUV" ? 160 : 120,
-                  }}
-                  onClick={() => setCartype("SUV")}
-                  className="car-category-image "
-                >
-                  <img
-                    src={SUV}
-                    className="img-fluid"
-                    alt="car category"
-                    id="Cabriolet"
-                  />
-                  <p
-                    className="text-center"
-                    style={{ color: carType === "SUV" ? "gold" : "grey" }}
-                  >
-                    SUV
-                  </p>
-                </div>
-                <div
-                  style={{
-                    width: carType === "Minivans De Luxe" ? 160 : 120,
-                    height: carType === "Minivans De Luxe" ? 160 : 120,
-                  }}
-                  onClick={() => setCartype("Minivans De Luxe")}
-                  className="car-category-image "
-                >
-                  <img
-                    src={Van}
-                    className="img-fluid"
-                    alt="car category"
-                    id="Cabriolet"
-                  />
-                  <p
-                    className="text-center"
-                    style={{
-                      color: carType === "Minivans De Luxe" ? "gold" : "grey",
-                    }}
-                  >
-                    Minivans De Luxe
-                  </p>
-                </div>
+           
                 {/* <div
                   onClick={() => setCartype("Limousine")}
                   className="car-category-image "

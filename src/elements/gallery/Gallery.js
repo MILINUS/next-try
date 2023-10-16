@@ -44,6 +44,7 @@ import FooterFour from "../../common/footer/FooterFour";
 import HeaderMain from "../../common/header/HeaderMain";
 import { FirestoreDb } from "../../Firebase";
 import { collection, getDocs, query, where } from "firebase/firestore";
+import { Helmet } from 'react-helmet';
 const Elements = ({ props }) => {
   const location = useLocation();
   const [selected, setSelected] = useState(false);
@@ -174,7 +175,11 @@ const Elements = ({ props }) => {
     console.log("errors",errors)
   return (
     <>
-      <SEO title="Gallery || SPORT CARS & LUXURY" />
+      <SEO title="Gallery || SPORT CARS & LUXURY"  description={CarData?.description}/>
+      <Helmet>
+      <title>{CarData?.title} {CarData?.subtitle} ||SPORT CARS & LUXURY</title>‍
+        <meta name="description" content={CarData?.description} />       
+      </Helmet>
       <main>
         <HeaderMain />
         <section className={styles.car_section}>
